@@ -9,8 +9,7 @@
                 <div class="col-lg-4">
                     <div class="contact-text">
                         <h2>Contact Info</h2>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
-                            labore et dolore magna aliqua.</p>
+                        <p>Kami senang mendengar dari Anda! Jangan ragu untuk menghubungi kami melalui informasi di bawah ini. Tim kami siap membantu Anda dengan pertanyaan, saran, atau kebutuhan lainnya.</p>
                         <table>
                             <tbody>
                                 <tr>
@@ -23,11 +22,11 @@
                                 </tr>
                                 <tr>
                                     <td class="c-o">Email:</td>
-                                    <td>info@sabualu.com</td>
+                                    <td>saluamana03@gmail.com</td>
                                 </tr>
                                 <tr>
                                     <td class="c-o">Fax:</td>
-                                    <td>+(12) 345 67890</td>
+                                    <td>(62) 813 2834 4002</td>
                                 </tr>
                             </tbody>
                         </table>

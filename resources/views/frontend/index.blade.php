@@ -9,7 +9,7 @@
                     <div class="hero-text">
                         <h1>Salu Amana Residence Wonosobo</h1>
                         <p>Hotel Berbasis Syariah yang berada di pusat kota Wonosobo</p>
-                        <a href="#" class="primary-btn">Booking Now</a>
+                        <a href="{{ route('frontend.bookings') }}" class="primary-btn">Booking Now</a>
                     </div>
                 </div>
             </div>

@@ -29,3 +29,7 @@ Route::get('/rooms', function () {
     return view('frontend.rooms.index');
 })->name('frontend.rooms');
 
+Route::get('/bookings', function () {
+    return view('frontend.bookings.index');
+})->name('frontend.bookings');
+

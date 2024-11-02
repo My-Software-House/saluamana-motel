@@ -48,7 +48,7 @@
             <i class="icon_search"></i>
         </div>
         <div class="header-configure-area">
-            <a href="#" class="bk-btn">Booking Now</a>
+            <a href="{{ route('frontend.bookings') }}" class="bk-btn">Booking Now</a>
         </div>
         <nav class="mainmenu mobile-menu">
             <ul>
@@ -65,8 +65,8 @@
             <a href="#"><i class="fa fa-instagram"></i></a>
         </div>
         <ul class="top-widget">
-            <li><i class="fa fa-phone"></i> (62) 813 2834 4002</li>
-            <li><i class="fa fa-envelope"></i> info@saluamana.com</li>
+            <li><i class="fa fa-phone"></i> (+62) 813 2834 4002</li>
+            <li><i class="fa fa-envelope"></i> saluamana03@gmail.com</li>
         </ul>
     </div>
     <!-- Offcanvas Menu Section End -->
@@ -78,8 +78,8 @@
                 <div class="row">
                     <div class="col-lg-6">
                         <ul class="tn-left">
-                            <li><i class="fa fa-phone"></i> (62) 851 5538 0996</li>
-                            <li><i class="fa fa-envelope"></i> info@saluamana.com</li>
+                            <li><i class="fa fa-phone"></i> (+62) 813 2834 4002</li>
+                            <li><i class="fa fa-envelope"></i> saluamana03@gmail.com</li>
                         </ul>
                     </div>
                     <div class="col-lg-6">
@@ -89,7 +89,7 @@
                                 <a href="#"><i class="fa fa-twitter"></i></a>
                                 <a href="#"><i class="fa fa-instagram"></i></a>
                             </div>
-                            <a href="#" class="bk-btn">Booking Now</a>
+                            <a href="{{ route('frontend.bookings') }}" class="bk-btn">Booking Now</a>
                         </div>
                     </div>
                 </div>
@@ -109,10 +109,10 @@
                         <div class="nav-menu">
                             <nav class="mainmenu">
                                 <ul>
-                                    <li class="active"><a href="{{ route('frontend.home') }}">Home</a></li>
-                                    <li><a href="{{ route('frontend.rooms') }}">Rooms</a></li>
-                                    <li><a href="{{ route('frontend.about') }}">About Us</a></li>
-                                    <li><a href="{{ route('frontend.contact') }}">Contact</a></li>
+                                    <li class="{{ Route::is('frontend.home') ? 'active' : '' }}"><a href="{{ route('frontend.home') }}">Home</a></li>
+                                    <li class="{{ Route::is('frontend.rooms') ? 'active' : '' }}"><a href="{{ route('frontend.rooms') }}">Rooms</a></li>
+                                    <li class="{{ Route::is('frontend.about') ? 'active' : '' }}"><a href="{{ route('frontend.about') }}">About Us</a></li>
+                                    <li class="{{ Route::is('frontend.contact') ? 'active' : '' }}"><a href="{{ route('frontend.contact') }}">Contact</a></li>
                                 </ul>
                             </nav>
 
