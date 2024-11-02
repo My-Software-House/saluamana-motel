@@ -8,8 +8,7 @@
                 <div class="col-lg-6">
                     <div class="hero-text">
                         <h1>Salu Amana Residence Wonosobo</h1>
-                        <p>Here are the best hotel booking sites, including recommendations for international
-                            travel and for finding low-priced hotel rooms.</p>
+                        <p>Hotel Berbasis Syariah yang berada di pusat kota Wonosobo</p>
                         <a href="#" class="primary-btn">Booking Now</a>
                     </div>
                 </div>
@@ -30,11 +29,11 @@
                 <div class="col-lg-6">
                     <div class="about-text">
                         <div class="section-title">
-                            <span>About Us</span>
-                            <h2>Salu Amana <br />Resident Wonosobo</h2>
+                            <span>Tentang Kami</span>
+                            <h2>Salu Amana <br />Residence Wonosobo</h2>
                         </div>
-                        <p class="f-para">Menginap di Salu Amana Resident Wonosobo tak hanya memberikan kemudahan untuk mengeksplorasi keindahan di Wonosobo, tetapi juga menawarkan kenyamanan bagi istirahat Anda.</p>
-                        <p class="s-para">Salu Amana Resedent merupakan hotel rekomendasi untuk Anda, seorang backpacker yang tak hanya mengutamakan budget , tapi juga kenyamana saat beristirahat.</p>
+                        <p class="f-para">Menginap di Salu Amana Residence Wonosobo bukan hanya memudahkan Anda menjelajahi keindahan Wonosobo, tetapi juga memberikan suasana nyaman untuk beristirahat dengan tenang.</p>
+                        <p class="s-para">Salu Amana Residence adalah rekomendasi ideal bagi Anda, para backpacker yang mencari akomodasi ramah anggaran namun tetap mengutamakan kenyamanan selama menginap.</p>
                         <a href="#" class="primary-btn about-btn">Read More</a>
                     </div>
                 </div>
@@ -61,8 +60,8 @@
             <div class="row">
                 <div class="col-lg-12">
                     <div class="section-title">
-                        <span>What We Do</span>
-                        <h2>Discover Our Services</h2>
+                        <span>Apa Yang Kami Lakukan</span>
+                        <h2>Temukan Layanan Kami</h2>
                     </div>
                 </div>
             </div>
@@ -71,48 +70,21 @@
                     <div class="service-item">
                         <i class="flaticon-036-parking"></i>
                         <h4>Travel Plan</h4>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut
-                            labore et dolore magna.</p>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-sm-6">
-                    <div class="service-item">
-                        <i class="flaticon-033-dinner"></i>
-                        <h4>Catering Service</h4>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut
-                            labore et dolore magna.</p>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-sm-6">
-                    <div class="service-item">
-                        <i class="flaticon-026-bed"></i>
-                        <h4>Babysitting</h4>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut
-                            labore et dolore magna.</p>
+                        <p>Jelajahi destinasi Wonosobo dengan mudah dan nyaman menggunakan layanan Travel Plan kami. Tim kami siap membantu Anda merencanakan perjalanan wisata yang sesuai dengan minat dan jadwal Anda, memastikan Anda dapat menikmati pengalaman yang berkesan selama menginap di hotel kami.</p>
                     </div>
                 </div>
                 <div class="col-lg-4 col-sm-6">
                     <div class="service-item">
                         <i class="flaticon-024-towel"></i>
                         <h4>Laundry</h4>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut
-                            labore et dolore magna.</p>
+                        <p>Nikmati kenyamanan layanan laundry hotel kami, yang dirancang untuk memastikan pakaian Anda selalu bersih dan rapi selama menginap. Kami menawarkan beberapa pilihan layanan laundry yang disesuaikan dengan kebutuhan Anda</p>
                     </div>
                 </div>
                 <div class="col-lg-4 col-sm-6">
                     <div class="service-item">
                         <i class="flaticon-044-clock-1"></i>
-                        <h4>Hire Driver</h4>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut
-                            labore et dolore magna.</p>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-sm-6">
-                    <div class="service-item">
-                        <i class="flaticon-012-cocktail"></i>
-                        <h4>Bar & Drink</h4>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut
-                            labore et dolore magna.</p>
+                        <h4>Pickup Driver </h4>
+                        <p>Kami memahami pentingnya perjalanan yang nyaman dan bebas stres dari atau menuju hotel. Layanan Driver Penjemputan kami memastikan Anda dapat menikmati perjalanan yang aman dan nyaman, baik dari bandara, stasiun, terminal, atau lokasi lainnya.</p>
                     </div>
                 </div>
             </div>
@@ -128,25 +100,26 @@
                     <div class="col-lg-4 col-md-6">
                         <div class="hp-room-item set-bg" data-setbg="{{ asset('/template/img/room/room-1.jpeg') }}">
                             <div class="hr-text">
-                                <h3>Double Room</h3>
-                                <h2>199$<span>/Pernight</span></h2>
+                                <h3>Single Room</h3>
+                                <h2>Rp. 217.000<span>/Pernight</span></h2>
+                                <h5><s>Rp. 310.000</s> <span class="discount">30%</span></h5>
                                 <table>
                                     <tbody>
                                         <tr>
-                                            <td class="r-o">Size:</td>
-                                            <td>30 ft</td>
+                                            <td class="r-o">Size</td>
+                                            <td>: 30 ft</td>
                                         </tr>
                                         <tr>
-                                            <td class="r-o">Capacity:</td>
-                                            <td>Max persion 5</td>
+                                            <td class="r-o">Capacity</td>
+                                            <td>: Max persion 5</td>
                                         </tr>
                                         <tr>
-                                            <td class="r-o">Bed:</td>
-                                            <td>King Beds</td>
+                                            <td class="r-o">Bed</td>
+                                            <td>: King Beds</td>
                                         </tr>
                                         <tr>
-                                            <td class="r-o">Services:</td>
-                                            <td>Wifi, Television, Bathroom,...</td>
+                                            <td class="r-o">Services</td>
+                                            <td>: Wifi, Television, Bathroom,...</td>
                                         </tr>
                                     </tbody>
                                 </table>
@@ -157,25 +130,26 @@
                     <div class="col-lg-4 col-md-6">
                         <div class="hp-room-item set-bg" data-setbg="{{ asset('/template/img/room/room-2.jpeg') }}">
                             <div class="hr-text">
-                                <h3>Premium King Room</h3>
-                                <h2>159$<span>/Pernight</span></h2>
+                                <h3>Medium Room</h3>
+                                <h2>Rp. 247.000<span>/Pernight</span></h2>
+                                <h5><s>Rp. 353.000</s> <span class="discount">30%</span></h5>
                                 <table>
                                     <tbody>
                                         <tr>
-                                            <td class="r-o">Size:</td>
-                                            <td>30 ft</td>
+                                            <td class="r-o">Size</td>
+                                            <td>:30 ft</td>
                                         </tr>
                                         <tr>
                                             <td class="r-o">Capacity:</td>
-                                            <td>Max persion 5</td>
+                                            <td>: Max persion 5</td>
                                         </tr>
                                         <tr>
-                                            <td class="r-o">Bed:</td>
-                                            <td>King Beds</td>
+                                            <td class="r-o">Bed</td>
+                                            <td>: King Beds</td>
                                         </tr>
                                         <tr>
                                             <td class="r-o">Services:</td>
-                                            <td>Wifi, Television, Bathroom,...</td>
+                                            <td>: Wifi, Television, Bathroom,...</td>
                                         </tr>
                                     </tbody>
                                 </table>
@@ -186,25 +160,26 @@
                     <div class="col-lg-4 col-md-6">
                         <div class="hp-room-item set-bg" data-setbg="{{ asset('/template/img/room/room-3.jpeg') }}">
                             <div class="hr-text">
-                                <h3>Deluxe Room</h3>
-                                <h2>198$<span>/Pernight</span></h2>
+                                <h3>Fighter Room</h3>
+                                <h2>Rp. 317.000<span>/Pernight</span></h2>
+                                <h5><s>Rp. 453.000</s> <span class="discount">30%</span></h5>
                                 <table>
                                     <tbody>
                                         <tr>
-                                            <td class="r-o">Size:</td>
-                                            <td>30 ft</td>
+                                            <td class="r-o">Size</td>
+                                            <td>: 30 ft</td>
                                         </tr>
                                         <tr>
                                             <td class="r-o">Capacity:</td>
-                                            <td>Max persion 5</td>
+                                            <td>: Max persion 5</td>
                                         </tr>
                                         <tr>
                                             <td class="r-o">Bed:</td>
-                                            <td>King Beds</td>
+                                            <td>: King Beds</td>
                                         </tr>
                                         <tr>
                                             <td class="r-o">Services:</td>
-                                            <td>Wifi, Television, Bathroom,...</td>
+                                            <td>: Wifi, Television, Bathroom,...</td>
                                         </tr>
                                     </tbody>
                                 </table>

@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="description" content="Wonosobo Best Motel">
     <meta name="keywords" content="Sona, unica, creative, html">
-    <meta name="viewport" content="width=device-width, initial-scale=1.5">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
 
     <title>Salu Amana Residence | Landing </title>
