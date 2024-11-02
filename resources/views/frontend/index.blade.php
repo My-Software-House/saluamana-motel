@@ -26,7 +26,7 @@
     <!-- About Us Section Begin -->
     <section class="aboutus-section spad">
         <div class="container">
-            <div class="row">
+            <div class="row mx-auto">
                 <div class="col-lg-6">
                     <div class="about-text">
                         <div class="section-title">
@@ -45,7 +45,7 @@
                                 <img src="{{ asset('/template/img/about/about-1.jpeg') }}" alt="">
                             </div>
                             <div class="col-sm-6">
-                                <img src="{{ asset('/template/img/about/about-2.jpg') }}" alt="">
+                                <img src="{{ asset('/template/img/about/about-2.jpeg') }}" alt="">
                             </div>
                         </div>
                     </div>
@@ -122,11 +122,11 @@
 
     <!-- Home Room Section Begin -->
     <section class="hp-room-section">
-        <div class="container-fluid">
+        <div class="container">
             <div class="hp-room-items">
                 <div class="row">
-                    <div class="col-lg-3 col-md-6">
-                        <div class="hp-room-item set-bg" data-setbg="{{ asset('/template/img/room/room-b1.jpg') }}">
+                    <div class="col-lg-4 col-md-6">
+                        <div class="hp-room-item set-bg" data-setbg="{{ asset('/template/img/room/room-1.jpeg') }}">
                             <div class="hr-text">
                                 <h3>Double Room</h3>
                                 <h2>199$<span>/Pernight</span></h2>
@@ -154,8 +154,8 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-lg-3 col-md-6">
-                        <div class="hp-room-item set-bg" data-setbg="{{ asset('/template/img/room/room-b2.jpg') }}">
+                    <div class="col-lg-4 col-md-6">
+                        <div class="hp-room-item set-bg" data-setbg="{{ asset('/template/img/room/room-2.jpeg') }}">
                             <div class="hr-text">
                                 <h3>Premium King Room</h3>
                                 <h2>159$<span>/Pernight</span></h2>
@@ -183,8 +183,8 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-lg-3 col-md-6">
-                        <div class="hp-room-item set-bg" data-setbg="{{ asset('/template/img/room/room-b3.jpg') }}">
+                    <div class="col-lg-4 col-md-6">
+                        <div class="hp-room-item set-bg" data-setbg="{{ asset('/template/img/room/room-3.jpeg') }}">
                             <div class="hr-text">
                                 <h3>Deluxe Room</h3>
                                 <h2>198$<span>/Pernight</span></h2>

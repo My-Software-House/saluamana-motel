@@ -26,6 +26,7 @@
     <link rel="stylesheet" href="{{ asset('/template/css/magnific-popup.css') }}" type="text/css">
     <link rel="stylesheet" href="{{ asset('/template/css/slicknav.min.css') }}" type="text/css">
     <link rel="stylesheet" href="{{ asset('/template/css/style.css') }}" type="text/css">
+    @yield('head')
 </head>
 
 <body>
@@ -51,17 +52,16 @@
         </div>
         <nav class="mainmenu mobile-menu">
             <ul>
-                <li class="active"><a href="./index.html">Home</a></li>
-                <li><a href="./rooms.html">Rooms</a></li>
-                <li><a href="./about-us.html">About Us</a></li>
-                <li><a href="./contact.html">Contact</a></li>
+                <li class="active"><a href="{{ route('frontend.home') }}">Home</a></li>
+                <li><a href="{{ route('frontend.rooms') }}">Rooms</a></li>
+                <li><a href="{{ route('frontend.about') }}">About Us</a></li>
+                <li><a href="{{ route('frontend.contact') }}">Contact</a></li>
             </ul>
         </nav>
         <div id="mobile-menu-wrap"></div>
         <div class="top-social">
             <a href="#"><i class="fa fa-facebook"></i></a>
             <a href="#"><i class="fa fa-twitter"></i></a>
-            <a href="#"><i class="fa fa-tripadvisor"></i></a>
             <a href="#"><i class="fa fa-instagram"></i></a>
         </div>
         <ul class="top-widget">
@@ -87,7 +87,6 @@
                             <div class="top-social">
                                 <a href="#"><i class="fa fa-facebook"></i></a>
                                 <a href="#"><i class="fa fa-twitter"></i></a>
-                                <a href="#"><i class="fa fa-tripadvisor"></i></a>
                                 <a href="#"><i class="fa fa-instagram"></i></a>
                             </div>
                             <a href="#" class="bk-btn">Booking Now</a>
@@ -110,10 +109,10 @@
                         <div class="nav-menu">
                             <nav class="mainmenu">
                                 <ul>
-                                    <li class="active"><a href="./index.html">Home</a></li>
-                                    <li><a href="./rooms.html">Rooms</a></li>
-                                    <li><a href="./about-us.html">About Us</a></li>
-                                    <li><a href="./contact.html">Contact</a></li>
+                                    <li class="active"><a href="{{ route('frontend.home') }}">Home</a></li>
+                                    <li><a href="{{ route('frontend.rooms') }}">Rooms</a></li>
+                                    <li><a href="{{ route('frontend.about') }}">About Us</a></li>
+                                    <li><a href="{{ route('frontend.contact') }}">Contact</a></li>
                                 </ul>
                             </nav>
 
@@ -195,6 +194,7 @@
     <script src="{{ asset('/template/js/jquery.slicknav.js') }}"></script>
     <script src="{{ asset('/template/js/owl.carousel.min.js') }}"></script>
     <script src="{{ asset('/template/js/main.js') }}"></script>
+    @yield('script')
 </body>
 
 </html>
