@@ -48,7 +48,7 @@
             <i class="icon_search"></i>
         </div>
         <div class="header-configure-area">
-            <a href="{{ route('frontend.bookings') }}" class="bk-btn">Booking Now</a>
+            <a href="https://wa.link/gqev0r" class="bk-btn">Booking Now</a>
         </div>
         <nav class="mainmenu mobile-menu">
             <ul>
@@ -65,7 +65,7 @@
             <a href="#"><i class="fa fa-instagram"></i></a>
         </div>
         <ul class="top-widget">
-            <li><i class="fa fa-phone"></i> (+62) 813 2834 4002</li>
+            <li><i class="fa fa-phone"></i>(+62) 812-6655-7555</li>
             <li><i class="fa fa-envelope"></i> saluamana03@gmail.com</li>
         </ul>
     </div>
@@ -78,7 +78,7 @@
                 <div class="row">
                     <div class="col-lg-6">
                         <ul class="tn-left">
-                            <li><i class="fa fa-phone"></i> (+62) 813 2834 4002</li>
+                            <li><i class="fa fa-phone"></i> (+62) 812-6655-7555</li>
                             <li><i class="fa fa-envelope"></i> saluamana03@gmail.com</li>
                         </ul>
                     </div>
@@ -89,7 +89,7 @@
                                 <a href="#"><i class="fa fa-twitter"></i></a>
                                 <a href="#"><i class="fa fa-instagram"></i></a>
                             </div>
-                            <a href="{{ route('frontend.bookings') }}" class="bk-btn">Booking Now</a>
+                            <a href="https://wa.link/gqev0r" class="bk-btn">Booking Now</a>
                         </div>
                     </div>
                 </div>
@@ -151,7 +151,7 @@
                         <div class="ft-contact">
                             <h6>Contact Us</h6>
                             <ul>
-                                <li>(62) 813 2834 4002</li>
+                                <li>(+62) 812-6655-7555</li>
                                 <li>info@saluamana.com</li>
                                 <li>Jl. Sabuk Alu No.3, Wonosobo Timur, Wonosobo Tim., Kec. Wonosobo, Kabupaten Wonosobo, Jawa Tengah 56311</li>
                             </ul>

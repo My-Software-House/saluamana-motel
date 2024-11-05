@@ -1,4 +1,4 @@
-@extends('frontend.template.template')
+@extends('frontend.layouts.template')
 
 @section('content')
 
@@ -26,11 +26,11 @@
             <div class="row">
                 <div class="col-lg-4 col-md-6">
                     <div class="room-item">
-                        <img src="{{ asset('/template/img/room/room-1.jpeg') }}" alt="">
+                        <img src="{{ asset('/frontend/img/room/room-1.jpeg') }}" alt="">
                         <div class="ri-text">
                             <h4>Single Room</h4>
-                            <h3>Rp 217.000<span>/Pernight</span></h3>
-                            <h5 class="mb-2"><s>Rp. 310.000</s> <span class="text-danger">Discount 30%</span></h5>
+                            {{-- <h3>Rp 217.000<span>/Pernight</span></h3>
+                            <h5 class="mb-2"><s>Rp. 310.000</s> <span class="text-danger">Discount 30%</span></h5> --}}
                             <table>
                                 <tbody>
                                     <tr>
@@ -57,11 +57,11 @@
                 </div>
                 <div class="col-lg-4 col-md-6">
                     <div class="room-item">
-                        <img src="{{ asset('/template/img/room/room-2.jpeg') }}" alt="">
+                        <img src="{{ asset('/frontend/img/room/room-2.jpeg') }}" alt="">
                         <div class="ri-text">
                             <h4>Middle Room</h4>
-                            <h3>Rp. 247.000<span>/Pernight</span></h3>
-                            <h5 class="mb-2"><s>Rp. 353.000</s> <span class="text-danger">Discount 30%</span></h5>
+                            {{-- <h3>Rp. 247.000<span>/Pernight</span></h3>
+                            <h5 class="mb-2"><s>Rp. 353.000</s> <span class="text-danger">Discount 30%</span></h5> --}}
                             <table>
                                 <tbody>
                                     <tr>
@@ -88,11 +88,11 @@
                 </div>
                 <div class="col-lg-4 col-md-6">
                     <div class="room-item">
-                        <img src="{{ asset('/template/img/room/room-3.jpeg') }}" alt="">
+                        <img src="{{ asset('/frontend/img/room/room-3.jpeg') }}" alt="">
                         <div class="ri-text">
                             <h4>Fighter Room</h4>
-                            <h3>Rp. 317.000<span>/Pernight</span></h3>
-                            <h5 class="mb-2"><s>Rp. 453.000</s> <span class="text-danger">Discount 30%</span></h5>
+                            {{-- <h3>Rp. 317.000<span>/Pernight</span></h3>
+                            <h5 class="mb-2"><s>Rp. 453.000</s> <span class="text-danger">Discount 30%</span></h5> --}}
                             <table>
                                 <tbody>
                                     <tr>
@@ -119,11 +119,11 @@
                 </div>
                 <div class="col-lg-4 col-md-6">
                     <div class="room-item">
-                        <img src="{{ asset('/template/img/room/room-4.jpeg') }}" alt="">
+                        <img src="{{ asset('/frontend/img/room/room-4.jpeg') }}" alt="">
                         <div class="ri-text">
                             <h4>Middle Room Moutain View</h4>
-                            <h3>Rp. 247.000<span>/Pernight</span></h3>
-                            <h5 class="mb-2"><s>Rp. 353.000</s> <span class="text-danger">Discount 30%</span></h5>
+                            {{-- <h3>Rp. 247.000<span>/Pernight</span></h3>
+                            <h5 class="mb-2"><s>Rp. 353.000</s> <span class="text-danger">Discount 30%</span></h5> --}}
                             <table>
                                 <tbody>
                                     <tr>
@@ -154,11 +154,11 @@
                 </div>
                 <div class="col-lg-4 col-md-6">
                     <div class="room-item">
-                        <img src="{{ asset('/template/img/room/room-5.jpeg') }}" alt="">
+                        <img src="{{ asset('/frontend/img/room/room-5.jpeg') }}" alt="">
                         <div class="ri-text">
                             <h4>Fighter Room Moutain View</h4>
-                            <h3>Rp. 317.000<span>/Pernight</span></h3>
-                            <h5 class="mb-2"><s>Rp. 453.000</s> <span class="text-danger">Discount 30%</span></h5>
+                            {{-- <h3>Rp. 317.000<span>/Pernight</span></h3>
+                            <h5 class="mb-2"><s>Rp. 453.000</s> <span class="text-danger">Discount 30%</span></h5> --}}
                             <table>
                                 <tbody>
                                     <tr>

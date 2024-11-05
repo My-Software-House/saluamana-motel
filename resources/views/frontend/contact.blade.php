@@ -26,7 +26,7 @@
                                 </tr>
                                 <tr>
                                     <td class="c-o">Fax:</td>
-                                    <td>(62) 813 2834 4002</td>
+                                    <td>(+62) 812-6655-7555</td>
                                 </tr>
                             </tbody>
                         </table>

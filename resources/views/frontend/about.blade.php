@@ -50,7 +50,7 @@
             <div class="col-md-4">
               <div
                 class="ap-service-item set-bg"
-                data-setbg="{{ asset('/template/img/about/about-p1.jpg') }}"
+                data-setbg="{{ asset('/frontend/img/about/about-p1.jpg') }}"
               >
                 <div class="api-text">
                   <h3>Restaurants Services</h3>
@@ -60,7 +60,7 @@
             <div class="col-md-4">
               <div
                 class="ap-service-item set-bg"
-                data-setbg="{{ asset('/template/img/about/about-p2.jpg') }}"
+                data-setbg="{{ asset('/frontend/img/about/about-p2.jpg') }}"
               >
                 <div class="api-text">
                   <h3>Travel & Camping</h3>
@@ -70,7 +70,7 @@
             <div class="col-md-4">
               <div
                 class="ap-service-item set-bg"
-                data-setbg="{{ asset('/template/img/about/about-p3.jpg') }}"
+                data-setbg="{{ asset('/frontend/img/about/about-p3.jpg') }}"
               >
                 <div class="api-text">
                   <h3>Event & Party</h3>
@@ -84,7 +84,7 @@
     <!-- About Us Page Section End -->
 
     <!-- Video Section Begin -->
-    <section class="video-section set-bg" data-setbg="{{ asset('/template/img/video-bg.jpg') }}">
+    <section class="video-section set-bg" data-setbg="{{ asset('/frontend/img/video-bg.jpg') }}">
       <div class="container">
         <div class="row">
           <div class="col-lg-12">
@@ -120,7 +120,7 @@
           <div class="col-lg-6">
             <div
               class="gallery-item set-bg"
-              data-setbg="{{ asset('/template/img/gallery/gallery-1.jpg') }}"
+              data-setbg="{{ asset('/frontend/img/gallery/gallery-1.jpg') }}"
             >
               <div class="gi-text">
                 <h3>Room Luxury</h3>
@@ -130,7 +130,7 @@
               <div class="col-sm-6">
                 <div
                   class="gallery-item set-bg"
-                  data-setbg="{{ asset('/template/img/gallery/gallery-3.jpg') }}"
+                  data-setbg="{{ asset('/frontend/img/gallery/gallery-3.jpg') }}"
                 >
                   <div class="gi-text">
                     <h3>Room Luxury</h3>
@@ -140,7 +140,7 @@
               <div class="col-sm-6">
                 <div
                   class="gallery-item set-bg"
-                  data-setbg="{{ asset('/template/img/gallery/gallery-4.jpg') }}"
+                  data-setbg="{{ asset('/frontend/img/gallery/gallery-4.jpg') }}"
                 >
                   <div class="gi-text">
                     <h3>Room Luxury</h3>
@@ -152,7 +152,7 @@
           <div class="col-lg-6">
             <div
               class="gallery-item large-item set-bg"
-              data-setbg="{{ asset('/template/img/gallery/gallery-2.jpg') }}"
+              data-setbg="{{ asset('/frontend/img/gallery/gallery-2.jpg') }}"
             >
               <div class="gi-text">
                 <h3>Room Luxury</h3>

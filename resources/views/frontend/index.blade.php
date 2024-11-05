@@ -9,13 +9,13 @@
                     <div class="hero-text">
                         <h1>Salu Amana Residence Wonosobo</h1>
                         <p>Hotel Berbasis Syariah yang berada di pusat kota Wonosobo</p>
-                        <a href="{{ route('frontend.bookings') }}" class="primary-btn">Booking Now</a>
+                        <a href="https://wa.link/gqev0r" class="primary-btn">Booking Now</a>
                     </div>
                 </div>
                 <div class="col-xl-4 col-lg-5 offset-xl-2 offset-lg-1">
                     <div class="booking-form">
                         <h3>Booking Salu Amana Hotel</h3>
-                        <form action="{{ route('frontend.bookings') }}">
+                        <form action="https://wa.link/gqev0r">
                             <div class="check-date">
                                 <label for="date-in">Check In:</label>
                                 <input type="text" class="date-input" id="date-in">
@@ -133,8 +133,8 @@
                         <div class="hp-room-item set-bg" data-setbg="{{ asset('/frontend/img/room/room-1.jpeg') }}">
                             <div class="hr-text">
                                 <h3>Single Room</h3>
-                                <h2>Rp. 217.000<span>/Pernight</span></h2>
-                                <h5><s>Rp. 310.000</s> <span class="discount">30%</span></h5>
+                                {{-- <h2>Rp. 217.000<span>/Pernight</span></h2>
+                                <h5><s>Rp. 310.000</s> <span class="discount">30%</span></h5> --}}
                                 <table>
                                     <tbody>
                                         <tr>
@@ -163,8 +163,8 @@
                         <div class="hp-room-item set-bg" data-setbg="{{ asset('/frontend/img/room/room-2.jpeg') }}">
                             <div class="hr-text">
                                 <h3>Medium Room</h3>
-                                <h2>Rp. 247.000<span>/Pernight</span></h2>
-                                <h5><s>Rp. 353.000</s> <span class="discount">30%</span></h5>
+                                {{-- <h2>Rp. 247.000<span>/Pernight</span></h2>
+                                <h5><s>Rp. 353.000</s> <span class="discount">30%</span></h5> --}}
                                 <table>
                                     <tbody>
                                         <tr>
@@ -193,8 +193,8 @@
                         <div class="hp-room-item set-bg" data-setbg="{{ asset('/frontend/img/room/room-3.jpeg') }}">
                             <div class="hr-text">
                                 <h3>Fighter Room</h3>
-                                <h2>Rp. 317.000<span>/Pernight</span></h2>
-                                <h5><s>Rp. 453.000</s> <span class="discount">30%</span></h5>
+                                {{-- <h2>Rp. 317.000<span>/Pernight</span></h2>
+                                <h5><s>Rp. 453.000</s> <span class="discount">30%</span></h5> --}}
                                 <table>
                                     <tbody>
                                         <tr>
