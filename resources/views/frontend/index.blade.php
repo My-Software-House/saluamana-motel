@@ -1,4 +1,4 @@
-@extends('frontend.template.template')
+@extends('frontend.layouts.template')
 @section('content')
 
     <!-- Hero Section Begin -->
@@ -47,9 +47,9 @@
             </div>
         </div>
         <div class="hero-slider owl-carousel">
-            <div class="hs-item set-bg" data-setbg="{{ asset('/template/img/hero/hero-1.jpeg') }}"></div>
-            <div class="hs-item set-bg" data-setbg="{{ asset('/template/img/hero/hero-2.jpeg') }}"></div>
-            <div class="hs-item set-bg" data-setbg="{{ asset('/template/img/hero/hero-3.jpeg') }}"></div>
+            <div class="hs-item set-bg" data-setbg="{{ asset('/frontend/img/hero/hero-1.jpeg') }}"></div>
+            <div class="hs-item set-bg" data-setbg="{{ asset('/frontend/img/hero/hero-2.jpeg') }}"></div>
+            <div class="hs-item set-bg" data-setbg="{{ asset('/frontend/img/hero/hero-3.jpeg') }}"></div>
         </div>
     </section>
     <!-- Hero Section End -->
@@ -73,10 +73,10 @@
                     <div class="about-pic">
                         <div class="row">
                             <div class="col-sm-6">
-                                <img src="{{ asset('/template/img/about/about-1.jpeg') }}" alt="">
+                                <img src="{{ asset('/frontend/img/about/about-1.jpeg') }}" alt="">
                             </div>
                             <div class="col-sm-6">
-                                <img src="{{ asset('/template/img/about/about-2.jpeg') }}" alt="">
+                                <img src="{{ asset('/frontend/img/about/about-2.jpeg') }}" alt="">
                             </div>
                         </div>
                     </div>
@@ -130,7 +130,7 @@
             <div class="hp-room-items">
                 <div class="row">
                     <div class="col-lg-4 col-md-6">
-                        <div class="hp-room-item set-bg" data-setbg="{{ asset('/template/img/room/room-1.jpeg') }}">
+                        <div class="hp-room-item set-bg" data-setbg="{{ asset('/frontend/img/room/room-1.jpeg') }}">
                             <div class="hr-text">
                                 <h3>Single Room</h3>
                                 <h2>Rp. 217.000<span>/Pernight</span></h2>
@@ -160,7 +160,7 @@
                         </div>
                     </div>
                     <div class="col-lg-4 col-md-6">
-                        <div class="hp-room-item set-bg" data-setbg="{{ asset('/template/img/room/room-2.jpeg') }}">
+                        <div class="hp-room-item set-bg" data-setbg="{{ asset('/frontend/img/room/room-2.jpeg') }}">
                             <div class="hr-text">
                                 <h3>Medium Room</h3>
                                 <h2>Rp. 247.000<span>/Pernight</span></h2>
@@ -190,7 +190,7 @@
                         </div>
                     </div>
                     <div class="col-lg-4 col-md-6">
-                        <div class="hp-room-item set-bg" data-setbg="{{ asset('/template/img/room/room-3.jpeg') }}">
+                        <div class="hp-room-item set-bg" data-setbg="{{ asset('/frontend/img/room/room-3.jpeg') }}">
                             <div class="hr-text">
                                 <h3>Fighter Room</h3>
                                 <h2>Rp. 317.000<span>/Pernight</span></h2>
