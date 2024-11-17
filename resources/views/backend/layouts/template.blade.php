@@ -5,7 +5,7 @@
   <!-- Required meta tags -->
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <title>Admin Salu Amana | @yield('title', '')</title>
+  <title>Admin Salu Amana | Hotel di Wonosobo - @yield('title', '')</title>
   <!-- plugins:css -->
   <link rel="stylesheet" href="{{ asset('backend/vendors/feather/feather.css') }}">
   <link rel="stylesheet" href="{{ asset('backend/vendors/ti-icons/css/themify-icons.css') }}">
