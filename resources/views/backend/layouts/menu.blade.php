@@ -25,20 +25,24 @@
     </a>
     <div class="collapse" id="booking">
         <ul class="nav flex-column sub-menu">
-            <li class="nav-item"> <a class="nav-link" href="pages/ui-features/buttons.html">Buttons</a></li>
-            <li class="nav-item"> <a class="nav-link" href="pages/ui-features/dropdowns.html">Dropdowns</a></li>
-            <li class="nav-item"> <a class="nav-link" href="pages/ui-features/typography.html">Typography</a></li>
+            {{-- <li class="nav-item"> <a class="nav-link" href="pages/ui-features/buttons.html">Buttons</a></li> --}}
         </ul>
     </div>
 </li>
 <li class="nav-item">
-    <a class="nav-link" href="index.html">
+    <a class="nav-link" href="#">
+        <i class="icon-grid menu-icon"></i>
+        <span class="menu-title">Voucher</span>
+    </a>
+</li>
+<li class="nav-item">
+    <a class="nav-link" href="#">
         <i class="icon-grid menu-icon"></i>
         <span class="menu-title">Pembayaran</span>
     </a>
 </li>
 <li class="nav-item">
-    <a class="nav-link" href="index.html">
+    <a class="nav-link" href="#">
         <i class="icon-grid menu-icon"></i>
         <span class="menu-title">Ketersediaan Kamar</span>
     </a>

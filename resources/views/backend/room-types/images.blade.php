@@ -11,7 +11,9 @@
 <div class="col-12 grid-margin stretch-card">
   <div class="card">
     <div class="card-body">
-      <h4 class="card-title"><a href="#" class="nav-link text-black h3">{{ $roomType->name }}</a></h4>
+        <a href="{{ route('backend.rooms-types.index') }}" class="btn btn-dark btn-sm mb-4">Kembali</a>
+
+      <h2 class="card-title">{{ $roomType->name }}</h2>
       <p class="card-description">Foto Utama</p>
       <div class="item selfie col-lg-3 col-md-4 col-6 col-sm">
         <a href="{{ asset('storage/' . $roomType->main_image) }}" class="fancylight popup-btn" data-fancybox-group="light">
