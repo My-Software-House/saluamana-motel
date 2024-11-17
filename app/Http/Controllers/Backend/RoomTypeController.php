@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\RoomType\CreateRequest;
 use App\Http\Requests\RoomType\UpdateRequest;
 use App\Models\Amenities;
+use App\Models\ImageRoomType;
 use App\Models\RoomType;
 use App\Traits\UploadTrait;
 use Illuminate\Http\Request;
@@ -104,5 +105,39 @@ class RoomTypeController extends Controller
         $roomType->amenities()->attach($request->input('amenity_id'), ['amenity_type' => $request->input('amenity_type')]);
         toast('Berhasil menambah fasilitas','success');
         return redirect()->route('backend.rooms-types.detail', ['id' => $roomType->id]);
+    }
+
+    public function images(string $id) {
+        $roomType = RoomType::find($id);
+        $imgRoomType = ImageRoomType::where('room_type_id', $roomType->id)->get();
+        return view('backend.room-types.images', compact('roomType', 'imgRoomType'));
+    }
+
+    public function imagespost(Request $request){
+        try {
+            $image = $this->uploads($request->file('file'), "room-type/images");
+
+            $imageRoomType = new ImageRoomType([
+                'image' => $image,
+                'room_type_id' => $request->room_type_id
+            ]);
+            $imageRoomType->save();
+
+            toast('Berhasil menambah gambar','success');
+
+            return response()->json(['success'=>true, 'image_id' => $imageRoomType->id]);
+        } catch (\Exception $e) {
+            return redirect()->back()->with('error', 'Gagal menambah data homestay ' . '['. $e->getMessage() .']');
+        }
+    }
+
+    public function imagesdelete(Request $request){
+        // try {
+        //     $this->imghomestayService->destroy($request->input('filename'), $request->input('id_homestay'));
+        //     return response()->json(['success'=>true]);
+        // } catch (\Exception $e) {
+        //     return response()->json(['success'=> $e->getMessage()]);
+        //     Log::error($e->getMessage());
+        // }
     }
 }

@@ -335,6 +335,7 @@
     <!-- page-body-wrapper ends -->
   </div>
   <!-- container-scroller -->
+  @yield('js')
 
   <!-- plugins:js -->
   <script src="{{ asset('backend/vendors/js/vendor.bundle.base.js') }}"></script>
@@ -353,7 +354,6 @@
   <script src="{{ asset('backend/js/dashboard.js') }}"></script>
   <script src="{{ asset('backend/js/Chart.roundedBarCharts.js') }}"></script>
   <!-- End custom js for this page-->
-  @yield('js')
 </body>
 
 </html>

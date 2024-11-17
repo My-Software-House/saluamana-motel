@@ -29,7 +29,12 @@
             <div class="row">
                 <div class="col-lg-8">
                     <div class="room-details-item">
-                        <img src="{{ asset('storage' . $roomType->main_image) }}" alt="">
+                        <div class="room-slideshow owl-carousel">
+                            <img src="{{ asset('storage' . $roomType->main_image) }}" alt="" height="500px">
+                            @foreach ($imgRoomType as $img)
+                                <img src="{{ asset('storage' . $img->image) }}" alt="" height="500px">
+                            @endforeach
+                        </div>
                         <div class="rd-text">
                             <div class="rd-title">
                                 <h3>{{ $roomType->name }}</h3>
@@ -179,4 +184,29 @@
         </div>
     </section>
     <!-- Room Details Section End -->
+@endsection
+
+@section('script')
+<script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
+<script>
+    $(document).ready(function(){
+    $(".room-slideshow").owlCarousel({
+        items: 1,
+        loop: true,
+        autoplay: true,
+        autoplayTimeout: 3000,
+        nav: true,
+        dots: true,
+        navText: [
+            '<i class="fa fa-angle-left"></i>',
+            '<i class="fa fa-angle-right"></i>'
+        ]
+    });
+});
+</script>
+@endsection
+
+@section('head')
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css">
 @endsection

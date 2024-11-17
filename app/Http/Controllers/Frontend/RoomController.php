@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Frontend;
 
 use App\Http\Controllers\Controller;
+use App\Models\ImageRoomType;
 use App\Models\RoomType;
 
 class RoomController extends Controller
@@ -14,6 +15,8 @@ class RoomController extends Controller
 
     public function detail($name){
         $roomType = RoomType::where("name",$name)->first();
-        return view('frontend.rooms.detail', compact('roomType'));
+        $imgRoomType = ImageRoomType::where('room_type_id', $roomType->id)->get();
+
+        return view('frontend.rooms.detail', compact('roomType', 'imgRoomType'));
     }
 }

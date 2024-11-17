@@ -39,5 +39,7 @@ Route::as('rooms-types.')
         Route::get('/{id}/detail', 'detail')->name('detail');
         Route::get('/{id}/amenity', 'createAmenity')->name('create-amenity');
         Route::put('/{id}/amenity', 'storeAmenity')->name('store-amenity');
-
+        Route::get('/images/{id}', 'images')->name('images');
+        Route::post('/images', 'imagespost')->name('images.post');
+        Route::delete('/images', 'imagesdelete')->name('images.delete');
     });
