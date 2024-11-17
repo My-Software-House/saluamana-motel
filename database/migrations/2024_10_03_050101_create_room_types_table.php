@@ -15,10 +15,9 @@ class CreateRoomTypesTable extends Migration
     {
         Schema::create('room_types', function (Blueprint $table) {
             $table->uuid('id')->primary();
-            $table->foreignUuid('amanitie_id');
             $table->string('name');
             $table->float('price', 10, 2);
-            $table->integer('max_guest');
+            $table->integer('capacity');
             $table->text('description');
             $table->integer('number_of_room');
             $table->boolean('is_available')->default(true);
@@ -26,6 +25,7 @@ class CreateRoomTypesTable extends Migration
             $table->integer('discount'); // percent
             $table->string('bed_type');
             $table->string('view')->nullable();
+            $table->string('main_image')->nullable();
             $table->timestamps();
         });
     }

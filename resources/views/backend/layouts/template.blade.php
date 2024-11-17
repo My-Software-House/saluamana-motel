@@ -5,7 +5,7 @@
   <!-- Required meta tags -->
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <title>Skydash Admin</title>
+  <title>Admin Salu Amana | @yield('title', '')</title>
   <!-- plugins:css -->
   <link rel="stylesheet" href="{{ asset('backend/vendors/feather/feather.css') }}">
   <link rel="stylesheet" href="{{ asset('backend/vendors/ti-icons/css/themify-icons.css') }}">
@@ -18,15 +18,19 @@
   <!-- End plugin css for this page -->
   <!-- inject:css -->
   <link rel="stylesheet" href="{{ asset('backend/css/vertical-layout-light/style.css') }}">
+    @yield('css')
+
   <!-- endinject -->
-  <link rel="shortcut icon" href="{{ asset('backend/images/favicon.png') }}" />
+  <link rel="shortcut icon" href="{{ asset('main-logo.png') }}" />
 </head>
 <body>
+  @include('sweetalert::alert')
+
   <div class="container-scroller">
     <!-- partial:partials/_navbar.html -->
     <nav class="navbar col-lg-12 col-12 p-0 fixed-top d-flex flex-row">
       <div class="text-center navbar-brand-wrapper d-flex align-items-center justify-content-center">
-        <a class="navbar-brand brand-logo mr-5" href="index.html"><img src="{{ asset('backend/images/logo.svg') }}" class="mr-2" alt="logo"/></a>
+        <a class="navbar-brand brand-logo mr-5" href="index.html"><img src="{{ asset('main-logo.png') }}" class="mr-2" alt="logo"/></a>
         <a class="navbar-brand brand-logo-mini" href="index.html"><img src="{{ asset('backend/images/logo-mini.svg') }}" alt="logo"/></a>
       </div>
       <div class="navbar-menu-wrapper d-flex align-items-center justify-content-end">
@@ -301,6 +305,16 @@
       <!-- partial -->
       <div class="main-panel">
         <div class="content-wrapper">
+            @if (count($errors) > 0)
+            <div class="alert alert-danger bg-danger text-light border-0 alert-dismissible fade show" role="alert">
+                <strong>Gagal</strong>Update Data.<br><br>
+                <ul>
+                    @foreach ($errors->all() as $error)
+                        <li>{{ $error }}</li>
+                    @endforeach
+                </ul>
+            </div>
+            @endif
           @yield('content')
         </div>
         <!-- content-wrapper ends -->
@@ -339,6 +353,7 @@
   <script src="{{ asset('backend/js/dashboard.js') }}"></script>
   <script src="{{ asset('backend/js/Chart.roundedBarCharts.js') }}"></script>
   <!-- End custom js for this page-->
+  @yield('js')
 </body>
 
 </html>

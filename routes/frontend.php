@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Frontend\RoomController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -25,9 +26,15 @@ Route::get('/contact', function () {
     return view('frontend.contact');
 })->name('contact');
 
-Route::get('/rooms', function () {
-    return view('frontend.rooms.index');
-})->name('rooms');
+Route::as('room-types.')
+    ->prefix('room-types')
+    ->controller(RoomController::class)
+    ->group(function() {
+        Route::get('/','index')->name('index');
+        Route::get('/{name}','detail')->name('detail');
+    });
+
+
 
 Route::get('/bookings', function () {
     return view('frontend.bookings.index');

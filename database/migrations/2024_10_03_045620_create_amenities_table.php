@@ -15,7 +15,6 @@ class CreateAmenitiesTable extends Migration
     {
         Schema::create('amenities', function (Blueprint $table) {
             $table->uuid('id')->primary();
-            $table->foreignUuid('amenities_type_id')->constrained();
             $table->string('name');
             $table->string('icon');
             $table->timestamps();

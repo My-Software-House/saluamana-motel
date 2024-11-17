@@ -24,26 +24,27 @@
     <section class="rooms-section spad">
         <div class="container">
             <div class="row">
+                @foreach ($roomTypes as $room)
                 <div class="col-lg-4 col-md-6">
                     <div class="room-item">
-                        <img src="{{ asset('/frontend/img/room/room-1.jpeg') }}" alt="">
+                        <img src="{{ asset('storage' . $room->main_image) }}" alt="">
                         <div class="ri-text">
-                            <h4>Single Room</h4>
-                            {{-- <h3>Rp 217.000<span>/Pernight</span></h3>
-                            <h5 class="mb-2"><s>Rp. 310.000</s> <span class="text-danger">Discount 30%</span></h5> --}}
+                            <h4>{{ $room->name }}</h4>
+                            <h3>Rp {{ number_format($room->price - ($room->price * ($room->discount / 100))) }}<span>/Pernight</span></h3>
+                            <h5 class="mb-2"><s>Rp. {{ number_format($room->price) }}</s> <span class="text-danger">Discount {{ $room->discount }}%</span></h5>
                             <table>
                                 <tbody>
                                     <tr>
                                         <td class="r-o">Size</td>
-                                        <td>: 13 m²</td>
+                                        <td>: {{ $room->size }} m²</td>
                                     </tr>
                                     <tr>
                                         <td class="r-o">Capacity</td>
-                                        <td>: Max persion 1</td>
+                                        <td>: Max persion {{ $room->capacity }}</td>
                                     </tr>
                                     <tr>
                                         <td class="r-o">Bed</td>
-                                        <td>: 1 Single Bed</td>
+                                        <td>: {{ $room->capacity }}</td>
                                     </tr>
                                     <tr>
                                         <td class="r-o">Services:</td>
@@ -51,142 +52,11 @@
                                     </tr>
                                 </tbody>
                             </table>
-                            <a href="#" class="primary-btn">More Details</a>
+                            <a href="{{ route('frontend.room-types.detail', ['name' => $room->name]) }}" class="primary-btn">More Details</a>
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-4 col-md-6">
-                    <div class="room-item">
-                        <img src="{{ asset('/frontend/img/room/room-2.jpeg') }}" alt="">
-                        <div class="ri-text">
-                            <h4>Middle Room</h4>
-                            {{-- <h3>Rp. 247.000<span>/Pernight</span></h3>
-                            <h5 class="mb-2"><s>Rp. 353.000</s> <span class="text-danger">Discount 30%</span></h5> --}}
-                            <table>
-                                <tbody>
-                                    <tr>
-                                        <td class="r-o">Size</td>
-                                        <td>: 17 m²</td>
-                                    </tr>
-                                    <tr>
-                                        <td class="r-o">Capacity</td>
-                                        <td>: Max persion 2</td>
-                                    </tr>
-                                    <tr>
-                                        <td class="r-o">Bed</td>
-                                        <td>: King Beds</td>
-                                    </tr>
-                                    <tr>
-                                        <td class="r-o">Services</td>
-                                        <td>: Wifi, Television, Bathroom,...</td>
-                                    </tr>
-                                </tbody>
-                            </table>
-                            <a href="#" class="primary-btn">More Details</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6">
-                    <div class="room-item">
-                        <img src="{{ asset('/frontend/img/room/room-3.jpeg') }}" alt="">
-                        <div class="ri-text">
-                            <h4>Fighter Room</h4>
-                            {{-- <h3>Rp. 317.000<span>/Pernight</span></h3>
-                            <h5 class="mb-2"><s>Rp. 453.000</s> <span class="text-danger">Discount 30%</span></h5> --}}
-                            <table>
-                                <tbody>
-                                    <tr>
-                                        <td class="r-o">Size</td>
-                                        <td>: 21 m²</td>
-                                    </tr>
-                                    <tr>
-                                        <td class="r-o">Capacity</td>
-                                        <td>Max persion 2</td>
-                                    </tr>
-                                    <tr>
-                                        <td class="r-o">Bed</td>
-                                        <td>: 1 Double Bed</td>
-                                    </tr>
-                                    <tr>
-                                        <td class="r-o">Services:</td>
-                                        <td>Wifi, Television, Bathroom,...</td>
-                                    </tr>
-                                </tbody>
-                            </table>
-                            <a href="#" class="primary-btn">More Details</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6">
-                    <div class="room-item">
-                        <img src="{{ asset('/frontend/img/room/room-4.jpeg') }}" alt="">
-                        <div class="ri-text">
-                            <h4>Middle Room Moutain View</h4>
-                            {{-- <h3>Rp. 247.000<span>/Pernight</span></h3>
-                            <h5 class="mb-2"><s>Rp. 353.000</s> <span class="text-danger">Discount 30%</span></h5> --}}
-                            <table>
-                                <tbody>
-                                    <tr>
-                                        <td class="r-o">Size</td>
-                                        <td>: 17 m²</td>
-                                    </tr>
-                                    <tr>
-                                        <td class="r-o">Capacity</td>
-                                        <td>: Max persion 2</td>
-                                    </tr>
-                                    <tr>
-                                        <td class="r-o">Bed</td>
-                                        <td>: King Beds</td>
-                                    </tr>
-                                    <tr>
-                                        <td class="r-o">Services:</td>
-                                        <td>Wifi, Television, Bathroom,...</td>
-                                    </tr>
-                                    <tr>
-                                        <td class="r-o">View:</td>
-                                        <td>Gunung Sindoro Sumbing.</td>
-                                    </tr>
-                                </tbody>
-                            </table>
-                            <a href="#" class="primary-btn">More Details</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6">
-                    <div class="room-item">
-                        <img src="{{ asset('/frontend/img/room/room-5.jpeg') }}" alt="">
-                        <div class="ri-text">
-                            <h4>Fighter Room Moutain View</h4>
-                            {{-- <h3>Rp. 317.000<span>/Pernight</span></h3>
-                            <h5 class="mb-2"><s>Rp. 453.000</s> <span class="text-danger">Discount 30%</span></h5> --}}
-                            <table>
-                                <tbody>
-                                    <tr>
-                                        <td class="r-o">Size</td>
-                                        <td>: 21 m²</td>
-                                    </tr>
-                                    <tr>
-                                        <td class="r-o">Capacity</td>
-                                        <td>Max persion 2</td>
-                                    </tr>
-                                    <tr>
-                                        <td class="r-o">Bed</td>
-                                        <td>: 1 Double Bed</td>
-                                    </tr>
-                                    <tr>
-                                        <td class="r-o">Services:</td>
-                                        <td>Wifi, Television, Bathroom,...</td>
-                                    </tr>
-                                    <tr>
-                                        <td class="r-o">View:</td>
-                                        <td>Gunung Sindoro Sumbing.</td>
-                                    </tr>
-                                </tbody>
-                            </table>
-                            <a href="#" class="primary-btn">More Details</a>
-                        </div>
-                    </div>
-                </div>
+                @endforeach
 
                 <div class="col-lg-12">
                     <div class="room-pagination">

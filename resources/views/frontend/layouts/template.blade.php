@@ -53,7 +53,7 @@
         <nav class="mainmenu mobile-menu">
             <ul>
                 <li class="active"><a href="{{ route('frontend.home') }}">Home</a></li>
-                <li><a href="{{ route('frontend.rooms') }}">Rooms</a></li>
+                <li><a href="{{ route('frontend.room-types.index') }}">Rooms</a></li>
                 <li><a href="{{ route('frontend.about') }}">About Us</a></li>
                 <li><a href="{{ route('frontend.contact') }}">Contact</a></li>
             </ul>
@@ -110,7 +110,7 @@
                             <nav class="mainmenu">
                                 <ul>
                                     <li class="{{ Route::is('frontend.home') ? 'active' : '' }}"><a href="{{ route('frontend.home') }}">Home</a></li>
-                                    <li class="{{ Route::is('frontend.rooms') ? 'active' : '' }}"><a href="{{ route('frontend.rooms') }}">Rooms</a></li>
+                                    <li class="{{ Route::is('frontend.room-types.*') ? 'active' : '' }}"><a href="{{ route('frontend.room-types.index') }}">Rooms</a></li>
                                     <li class="{{ Route::is('frontend.about') ? 'active' : '' }}"><a href="{{ route('frontend.about') }}">About Us</a></li>
                                     <li class="{{ Route::is('frontend.contact') ? 'active' : '' }}"><a href="{{ route('frontend.contact') }}">Contact</a></li>
                                 </ul>
