@@ -16,7 +16,7 @@
       <h2 class="card-title">{{ $roomType->name }}</h2>
       <p class="card-description">Foto Utama</p>
       <div class="item selfie col-lg-3 col-md-4 col-6 col-sm">
-        <a href="{{ asset('storage/' . $roomType->main_image) }}" class="fancylight popup-btn" data-fancybox-group="light">
+        <a href="{{  $roomType->main_image }}" class="fancylight popup-btn" data-fancybox-group="light">
           <img class="img-fluid" src="{{ asset('storage/' . $roomType->main_image) }}" alt="">
         </a>
       </div>
@@ -46,8 +46,8 @@
       <div class="portfolio-item row">
         @foreach ($imgRoomType as $img)
         <div class="item selfie col-lg-3 col-md-4 col-6 col-sm mt-3">
-           <a href="{{ asset('storage/' . $img->image) }}" class="fancylight popup-btn" data-fancybox-group="light">
-           <img class="img-fluid" src="{{ asset('storage/' . $img->image) }}" alt="">
+           <a href="{{ $img->image }}" class="fancylight popup-btn" data-fancybox-group="light">
+           <img class="img-fluid" src="{{ $img->image }}" alt="">
            </a>
         </div>
         @endforeach

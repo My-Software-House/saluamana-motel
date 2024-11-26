@@ -35,7 +35,7 @@
                 @foreach($roomTypes as $room)
                   <tr>
                     <td>#</td>
-                    <td><img class="rounded-0" src="{{ asset('storage' . $room->main_image) }}" alt="" width="300px"></td>
+                    <td><img class="rounded-0" src="{{ $room->main_image }}" alt="" width="300px"></td>
                     <td>{{ $room->name }}</td>
                     <td>Rp. {{ $room->price }}</td>
                     <td><a href="{{ route('backend.rooms-types.images', ['id' => $room->id ]) }}" class="btn text-primary ps-0">{{ $room->images->count() }} Images</a></td>

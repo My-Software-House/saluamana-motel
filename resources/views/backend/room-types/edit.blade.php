@@ -51,7 +51,7 @@
             </div>
             <div class="form-group">
                 {!! Form::label('main_image', 'Gambar Utama') !!}<br>
-                <img src="{{ asset('storage' . $roomType->main_image) }}" alt="" width="200px">
+                <img src="{{ $roomType->main_image }}" alt="" width="200px">
                 {!! Form::file('main_image', ['class' => 'form-control']) !!}
             </div>
             <button type="submit" class="btn btn-primary mr-2">Edit</button>

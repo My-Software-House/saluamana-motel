@@ -28,6 +28,8 @@ class RoomTypeController extends Controller
         try {
             $main_image = $this->uploads($request->file('main_image'), "room-type/images");
 
+            $image_url = asset('storage/' . $main_image);
+
             $roomType = new RoomType([
                 'name' => $request->input('name'),
                 'price' => $request->input('price'),
@@ -38,7 +40,7 @@ class RoomTypeController extends Controller
                 'discount' => $request->input('discount'),
                 'bed_type' => $request->input('bed_type'),
                 'view' => $request->input('view'),
-                'main_image' => $main_image
+                'main_image' => $image_url
             ]);
 
 
@@ -72,9 +74,11 @@ class RoomTypeController extends Controller
             $roomType->discount = $request->input('discount');
             $roomType->bed_type = $request->input('bed_type');
             $roomType->view = $request->input('view');
+
             if ($request->file('main_image') != null) {
                 $main_image = $this->uploads($request->file('main_image'), "room-type/images");
-                $roomType->main_image = $main_image;
+                $image_url = asset('storage/' . $main_image);
+                $roomType->main_image = $image_url;
             }
             $roomType->save();
 
@@ -116,9 +120,10 @@ class RoomTypeController extends Controller
     public function imagespost(Request $request){
         try {
             $image = $this->uploads($request->file('file'), "room-type/images");
+            $image_url = asset('storage/' . $image);
 
             $imageRoomType = new ImageRoomType([
-                'image' => $image,
+                'image' => $image_url,
                 'room_type_id' => $request->room_type_id
             ]);
             $imageRoomType->save();
