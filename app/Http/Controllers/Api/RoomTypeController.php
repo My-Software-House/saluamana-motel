@@ -20,7 +20,7 @@ class RoomTypeController extends Controller
             });
 
             $roomType->when($request->filled('capacity'), function ($q) use ($request) {
-                $q->whereRaw('capacity * number_of_room', ">=" , $request->input('capacity'));
+                $q->whereRaw('capacity * number_of_room >= ?', (int)$request->input('capacity'));
             });
 
             // Execute roomType and paginate results
