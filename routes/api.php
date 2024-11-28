@@ -18,10 +18,19 @@ use Illuminate\Support\Facades\Route;
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
-Route::as('room-types.')
-    ->prefix('room-types')
+
+Route::prefix('booking')
+    ->controller(App\Http\Controllers\Api\BookingController::class)
+    ->group(function() {
+        Route::post('/', 'booking');
+        Route::get('/unavailable-dates', 'getUnavailableDates');
+    });
+
+Route::prefix('room-types')
     ->controller(RoomTypeController::class)
     ->group(function() {
         Route::get('/','search');
         Route::get('/{id}', 'detail');
     });
+
+// Route::post('/booking', [App\Http\Controllers\Api\BookingController::class, 'booking']);

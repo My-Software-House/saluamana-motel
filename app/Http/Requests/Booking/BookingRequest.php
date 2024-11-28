@@ -2,7 +2,9 @@
 
 namespace App\Http\Requests\Booking;
 
+use Illuminate\Contracts\Validation\Validator;
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Http\Exceptions\HttpResponseException;
 
 class BookingRequest extends FormRequest
 {
@@ -13,7 +15,7 @@ class BookingRequest extends FormRequest
      */
     public function authorize()
     {
-        return false;
+        return true;
     }
 
     /**
@@ -24,7 +26,21 @@ class BookingRequest extends FormRequest
     public function rules()
     {
         return [
-            "date_range" => ['required']
+            "name" => ['required'],
+            "check_in" => ['required'],
+            "check_out" => ['required'],
+            "room_type_id" => ['required'],
+            "email" => ['required'],
+            "phone" => ['required'],
+            "total_amount" => ['required'],
+            "total_room" => ['required'],
         ];
+    }
+
+    protected function failedValidation(Validator $validator)
+    {
+        throw new HttpResponseException(response([
+            "error" => $validator->getMessageBag()
+        ], 400));
     }
 }

@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Backend\AmenitiesController;
+use App\Http\Controllers\Backend\BookingController;
 use App\Http\Controllers\Backend\RoomTypeController;
 use Illuminate\Support\Facades\Route;
 
@@ -42,4 +43,11 @@ Route::as('rooms-types.')
         Route::get('/images/{id}', 'images')->name('images');
         Route::post('/images', 'imagespost')->name('images.post');
         Route::delete('/images', 'imagesdelete')->name('images.delete');
+    });
+
+Route::as('bookings.')
+    ->prefix('bookings')
+    ->controller(BookingController::class)
+    ->group(function() {
+        Route::get('/', 'index')->name('index');
     });

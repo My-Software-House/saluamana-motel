@@ -25,7 +25,9 @@
     </a>
     <div class="collapse" id="booking">
         <ul class="nav flex-column sub-menu">
-            {{-- <li class="nav-item"> <a class="nav-link" href="pages/ui-features/buttons.html">Buttons</a></li> --}}
+            @foreach (App\Models\BookingStatus::all() as $booking)
+                <li class="nav-item"> <a class="nav-link" href="pages/ui-features/buttons.html">{{ $booking->name }}</a></li>
+            @endforeach
         </ul>
     </div>
 </li>
@@ -44,6 +46,6 @@
 <li class="nav-item">
     <a class="nav-link" href="#">
         <i class="icon-grid menu-icon"></i>
-        <span class="menu-title">Ketersediaan Kamar</span>
+        <span class="menu-title">Jadwal Booking</span>
     </a>
 </li>

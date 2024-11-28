@@ -177,6 +177,9 @@ return [
 
         RealRashid\SweetAlert\SweetAlertServiceProvider::class,
 
+        // own
+        App\Providers\Own\BookingProvider::class,
+
 
     ],
 

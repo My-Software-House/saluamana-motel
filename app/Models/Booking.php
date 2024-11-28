@@ -12,6 +12,8 @@ class Booking extends Model
 
     protected $keyType = 'string';
 
+    protected $guarded = [];
+
     public $incrementing = false;
 
     public static function boot() {
@@ -20,5 +22,13 @@ class Booking extends Model
         static::creating(function ($model) {
             $model->id = Str::uuid();
         });
+    }
+
+    public function user() {
+        return $this->belongsTo(User::class);
+    }
+
+    public function roomType() {
+        return $this->belongsTo(RoomType::class);
     }
 }

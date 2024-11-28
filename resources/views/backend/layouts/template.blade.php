@@ -297,7 +297,7 @@
       </div>
       <!-- partial -->
       <!-- partial:partials/_sidebar.html -->
-      <nav class="sidebar sidebar-offcanvas" id="sidebar">
+      <nav class="sidebar sidebar-offcanvas" style="width: 300px" id="sidebar">
         <ul class="nav">
           @include('backend.layouts.menu')
         </ul>

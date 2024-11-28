@@ -16,12 +16,14 @@ class CreateBookingsTable extends Migration
         Schema::create('bookings', function (Blueprint $table) {
             $table->uuid('id')->primary();
             $table->foreignUuid('user_id')->constrained();
-            $table->foreignUuid('room_id')->constrained();
-            $table->date('star_date');
-            $table->date('end_date');
-            $table->integer('total_guest');
-            $table->float('total_price', 10, 2);
-            $table->enum('status', ['pending', 'confirmed', 'cancelled'])->default('pending');
+            $table->foreignUuid('room_type_id')->constrained();
+            $table->integer('total_room');
+            $table->integer('total_amount');
+            $table->integer('duration');
+            $table->string('booking_id');
+            $table->date('check_in');
+            $table->date('check_out');
+            $table->foreignId('booking_status_id');
             $table->timestamps();
         });
     }
