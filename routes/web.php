@@ -13,23 +13,6 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('frontend.index');
-})->name('frontend.home');
+Auth::routes();
 
-Route::get('/about', function () {
-    return view('frontend.about');
-})->name('frontend.about');
-
-Route::get('/contact', function () {
-    return view('frontend.contact');
-})->name('frontend.contact');
-
-Route::get('/rooms', function () {
-    return view('frontend.rooms.index');
-})->name('frontend.rooms');
-
-Route::get('/bookings', function () {
-    return view('frontend.bookings.index');
-})->name('frontend.bookings');
-
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

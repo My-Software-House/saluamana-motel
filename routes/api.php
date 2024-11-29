@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\Api\PaymentController;
+use App\Http\Controllers\Api\RoomTypeController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -17,3 +19,23 @@ use Illuminate\Support\Facades\Route;
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
+
+Route::prefix('booking')
+    ->controller(App\Http\Controllers\Api\BookingController::class)
+    ->group(function() {
+        Route::post('/', 'booking');
+        Route::get('/unavailable-dates', 'getUnavailableDates');
+        Route::get('/{idBooking}', 'detail');
+    });
+
+Route::prefix('room-types')
+    ->controller(RoomTypeController::class)
+    ->group(function() {
+        Route::get('/','search');
+        Route::get('/{id}', 'detail');
+    });
+
+// midtrans callback
+Route::post('/midtrans/callback', [PaymentController::class, 'callback']);
+
+// Route::post('/booking', [App\Http\Controllers\Api\BookingController::class, 'booking']);
