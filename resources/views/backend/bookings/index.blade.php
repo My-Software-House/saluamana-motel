@@ -9,8 +9,10 @@
     <div class="col-md-12 grid-margin stretch-card">
       <div class="card">
         <div class="card-body">
-          <h4 class="card-title">Daftar Booking</h4>
-          <a href="{{ route('backend.rooms-types.create') }}" class="btn btn-primary btn-md my-2">Tambah Tipe Kamar</a>
+          <h4 class="card-title">Daftar Booking @if ($bookinStatus != null)
+            Status {{ $bookinStatus->name }}
+          @endif
+        </h4>
           <div class="table-responsive">
             <table class="table">
               <thead>

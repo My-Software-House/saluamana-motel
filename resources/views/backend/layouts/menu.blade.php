@@ -25,8 +25,10 @@
     </a>
     <div class="collapse" id="booking">
         <ul class="nav flex-column sub-menu">
+            <li class="nav-item"> <a class="nav-link" href="{{ route('backend.bookings.index') }}">Semua Booking</a></li>
+
             @foreach (App\Models\BookingStatus::all() as $booking)
-                <li class="nav-item"> <a class="nav-link" href="pages/ui-features/buttons.html">{{ $booking->name }}</a></li>
+                <li class="nav-item"> <a class="nav-link" href="{{ route('backend.bookings.index', ['booking_status_id' => $booking->id]) }}">{{ $booking->name }}</a></li>
             @endforeach
         </ul>
     </div>
