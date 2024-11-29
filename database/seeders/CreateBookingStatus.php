@@ -17,30 +17,18 @@ class CreateBookingStatus extends Seeder
         $statuses = [
             [
                 "id" => 1,
-                "name" => "Cek Ketersediaan",
-            ],
-            [
-                "id" => 2,
                 "name" => "Menunggu Pembayaran",
             ],
             [
+                "id" => 2,
+                "name" => "Sudah Terbayar",
+            ],
+            [
                 "id" => 3,
-                "name" => "Kamar Tidak Tersedia",
-            ],
-            [
-                "id" => 4,
-                "name" => "Cancel",
-            ],
-            [
-                "id" => 5,
                 "name" => "Check In",
             ],
             [
-                "id" => 6,
-                "name" => "Beri Ulasan",
-            ],
-            [
-                "id" => 7,
+                "id" => 4,
                 "name" => "Selesai",
             ],
         ];

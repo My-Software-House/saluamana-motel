@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Str;
 
-class Booking extends Model
+class Payment extends Model
 {
     use HasFactory;
 
@@ -22,21 +22,5 @@ class Booking extends Model
         static::creating(function ($model) {
             $model->id = Str::uuid();
         });
-    }
-
-    public function user() {
-        return $this->belongsTo(User::class);
-    }
-
-    public function roomType() {
-        return $this->belongsTo(RoomType::class);
-    }
-
-    public function bookingStatus() {
-        return $this->belongsTo(BookingStatus::class);
-    }
-
-    public function payment() {
-        return $this->hasOne(Payment::class);
     }
 }

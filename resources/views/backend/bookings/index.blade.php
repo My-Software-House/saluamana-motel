@@ -16,11 +16,15 @@
               <thead>
                 <tr>
                   <th>No</th>
+                  <th>ID Booking</th>
                   <th>Nama Customer</th>
+                  <th>Nomer Hp</th>
                   <th>Cek In</th>
                   <th>Cek Out</th>
                   <th>Kamar</th>
                   <th>Durasi</th>
+                  <th>Total Amount</th>
+                  <th>Status</th>
                   <th>Action</th>
                 </tr>
               </thead>
@@ -33,12 +37,18 @@
                 @foreach($bookings as $booking)
                   <tr>
                     <td>#</td>
+                    <td>{{ $booking->booking_id }}</td>
                     <td>{{ $booking->user->name }}</td>
+                    <td>{{ $booking->user->phone }}</td>
                     <td>{{ $booking->check_in }}</td>
                     <td>{{ $booking->check_out }}</td>
                     <td>{{ $booking->total_room }} Kamar - {{ $booking->roomType->name }}</td>
                     <td>{{ $booking->duration }} Hari</td>
+                    <td>Rp. {{ $booking->total_amount }}</td>
 
+                    <td>
+                        <span class="badge badge-warning">{{ $booking->bookingStatus->name }}</span>
+                    </td>
 
                     <td class="d-flex">
                         <a href="{{ route('backend.rooms-types.detail', ['id' => $booking->id]) }}" class="btn btn-sm btn-info mr-2">Detail</a>

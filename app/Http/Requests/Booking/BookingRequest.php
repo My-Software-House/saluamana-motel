@@ -34,6 +34,7 @@ class BookingRequest extends FormRequest
             "phone" => ['required'],
             "total_amount" => ['required'],
             "total_room" => ['required'],
+            "payment_method" => ['required'],
         ];
     }
 

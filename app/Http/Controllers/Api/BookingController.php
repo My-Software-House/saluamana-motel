@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Api;
 
 use App\Exceptions\BookingAlreadyExist;
 use App\Exceptions\BookingStatusNotFoundException;
+use App\Exceptions\PaymentException;
 use App\Exceptions\PhoneNumberNotFillException;
 use App\Exceptions\RoomNotFoundException;
 use App\Http\Controllers\Controller;
@@ -36,11 +37,12 @@ class BookingController extends Controller
 
             # return json
             $dataResponse= [
+                'id_booking' => $result->booking_id,
                 'check_in' => $result->check_in,
                 'check_out' => $result->check_out,
                 'duration' => $result->duration,
                 'booking_status' => $result->booking_status_id,
-                'total_amount' => $result->total,
+                'total_amount' => $result->total_amount,
                 'room_type_id' => $result->room_type_id,
                 'user_id' => $result->user_id,
             ];
@@ -53,6 +55,7 @@ class BookingController extends Controller
         } catch (PhoneNumberNotFillException |
             RoomNotFoundException |
             BookingAlreadyExist |
+            PaymentException |
             BookingStatusNotFoundException $e
         ) {
             throw new HttpResponseException(response([
@@ -62,7 +65,7 @@ class BookingController extends Controller
             ], 400));
 
         } catch (Exception $e) {
-            dd($e->getMessage());
+            dd($e);
             Log::error('Error Booking: '. $e->getMessage());
             return response()->json([
                 'success' => false,
@@ -130,5 +133,19 @@ class BookingController extends Controller
         );
 
         return response()->json(['message' => 'success', 'data' => ['unavailable_dates' => $unavailableDates]]);
+    }
+
+    public function detail($bookingId) {
+        $booking = Booking::with('payment')->with('roomType')->with('bookingStatus')->with('user')->where('booking_id', $bookingId)->first();
+        if ($bookingId == null) {
+            return response()->json([
+                "message" => "not found",
+            ], 404);
+        }
+
+        return response()->json([
+            "message" => "success",
+            "data" => $booking
+        ]);
     }
 }

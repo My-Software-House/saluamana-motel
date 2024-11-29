@@ -4,20 +4,29 @@ namespace App\Services\Impl;
 
 use App\Exceptions\BookingAlreadyExist;
 use App\Exceptions\BookingStatusNotFoundException;
+use App\Exceptions\PaymentException;
 use App\Exceptions\PhoneNumberNotFillException;
 use App\Exceptions\RoomNotFoundException;
 use App\Http\Requests\Booking\BookingRequest;
 use App\Models\Booking;
 use App\Models\BookingStatus;
+use App\Models\Payment;
 use App\Models\RoomType;
 use App\Models\User;
 use App\Services\BookingService;
 use App\Utils\SendWhatsapp;
 use Carbon\Carbon;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Http;
+use Illuminate\Support\Str;
 
 class BookingServiceImpl implements BookingService{
-    function booking(BookingRequest $req): Booking
+    private string $serverKey;
+    public function __construct() {
+        $this->serverKey = config('midtrans.key');
+    }
+
+    function booking(BookingRequest $req)
     {
         $room_id = $req->input('room_type_id');
         $check_in = $req->input('check_in');
@@ -27,6 +36,9 @@ class BookingServiceImpl implements BookingService{
         $total_room = $req->input('total_room');
         $phone = $req->input('phone');
         $name = $req->input('name');
+        $payment_method = $req->input('payment_method');
+
+
         $this->checkAvailableDate($check_in, $check_out, $room_id, $total_room);
 
         try {
@@ -45,7 +57,7 @@ class BookingServiceImpl implements BookingService{
             }
 
             $idBooking = $this->generateIdBooking();
-            $booking_status_id = 1; // cek ketersediaan
+            $booking_status_id = 1; // menunggu pembayaran
             $this->checkStatusBooking($booking_status_id);
             # get duration
             $duration = $this->getDuration($check_in, $check_out);
@@ -64,6 +76,20 @@ class BookingServiceImpl implements BookingService{
 
             $booking = Booking::create($data);
 
+            // create payment
+            $midtrans_order_id = Str::uuid();
+
+            $midtransPayment = $this->createPayment($booking, $midtrans_order_id, $payment_method);
+
+            Payment::create([
+                'booking_id' => $booking->id,
+                'midtrans_order_id' => $midtrans_order_id,
+                'total_amount' => $total_amount,
+                'created_at' => $midtransPayment->object()->transaction_time,
+                'status_payment' => $midtransPayment->object()->transaction_status,
+                'payment_code' => $midtransPayment->object()->va_numbers[0]->va_number,
+                'payment_method' => $payment_method
+            ]).
             // send notif
             $this->sendNotifCustomer($booking);
             $this->sendNotifOwner($booking);
@@ -107,14 +133,21 @@ class BookingServiceImpl implements BookingService{
         # check phone number
         $customer = $this->checkCustomerAndPhone($booking->user_id);
 
+        $payment_method = strtoupper($booking->payment->payment_method);
+        $total = $booking->payment->total_amount;
+        $va = $booking->payment->payment_code;
+
+
         $number = $customer->phone;
         $message = <<<EOT
         Hi $customer->name,
 
-        Terima kasih atas kepercayaanmu menggunakan Salu Amana Residence.
-        Saat ini, Reservesi dengan tipe kamar $room->name dalam proses cek ketersediaan.
+        Terima kasih atas pemesanan Anda di Salu Amana Residence!
 
-        Informasi akan kami infokan maksimal 1x24 jam.
+        Kami telah menerima pemesanan Anda untuk Single Room pada tanggal $booking->check_in.
+        Silakan lakukan pembayaran di nomer VA $payment_method : $va, dengan jumlah Rp.$total
+
+        Terima kasih dan kami menantikan kedatangan Anda!
         EOT;
 
         SendWhatsapp::send($number, $message);
@@ -130,10 +163,6 @@ class BookingServiceImpl implements BookingService{
         Hallo Admin Salu Amana,
 
         Pesan ini dari Salu Amana Resdence, terdapat booking baru untuk kamar $room->name pada tanggal $booking->check_in sampai $booking->check_out.
-
-        Untuk itu apakah masih ada booking untuk kamar dan tanggal tersebut .
-
-        Mohon konfirmasi secepatnya.
 
         Terimakasih.
         EOT;
@@ -202,5 +231,39 @@ class BookingServiceImpl implements BookingService{
                 throw new BookingAlreadyExist("Tanggal $formattedDate sudah penuh untuk tipe kamar ini.");
             }
         }
+    }
+
+    private function createPayment(Booking $booking, $midtrans_order_id, $payment_method) {
+        $payment_method = $payment_method;
+        $uri = 'https://api.sandbox.midtrans.com/v2/charge';
+        $authkey = 'Basic ' . base64_encode($this->serverKey);
+        // dd($payment_method);
+        $response = Http::withHeaders([
+        'Authorization' =>  $authkey,
+        'Content-Type' => 'application/json',
+        'Accept' => 'application/json'
+        ])
+        ->post($uri, [
+            'payment_type' => 'bank_transfer',
+            'transaction_details' => [
+            'order_id' => $midtrans_order_id,
+            'gross_amount' => $booking->total_amount,
+            ],
+            "bank_transfer" => [
+                "bank" => $payment_method
+            ],
+            'customer_details' => [
+            'first_name' => $booking->user->name,
+            'last_name' => '',
+            'email' => $booking->user->email,
+            'phone' => $booking->user->phone_number,
+            ],
+        ]);
+
+        if($response->object()->status_code != 201) {
+            throw new PaymentException("Error : " . $response);
+        }
+
+        return $response;
     }
 }
