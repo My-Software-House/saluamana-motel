@@ -180,7 +180,8 @@ return [
         // own
         App\Providers\Own\BookingProvider::class,
 
-
+        //  cors
+        FruitCake\Cors\CorsServiceProvider::class,
     ],
 
     /*
