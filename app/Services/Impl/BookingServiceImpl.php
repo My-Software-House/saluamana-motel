@@ -22,8 +22,12 @@ use Illuminate\Support\Str;
 
 class BookingServiceImpl implements BookingService{
     private string $serverKey;
+    private string $midtransApiUrl;
+
     public function __construct() {
-        $this->serverKey = config('midtrans.key');
+        $this->serverKey = config('midtrans.serverKey');
+        $this->midtransApiUrl = config('midtrans.apiUrl');
+
     }
 
     function booking(BookingRequest $req)
@@ -98,6 +102,7 @@ class BookingServiceImpl implements BookingService{
             return $booking;
         } catch (\Exception $e) {
             DB::rollBack();
+            dd($e);
         }
 
     }
@@ -235,7 +240,7 @@ class BookingServiceImpl implements BookingService{
 
     private function createPayment(Booking $booking, $midtrans_order_id, $payment_method) {
         $payment_method = $payment_method;
-        $uri = 'https://api.sandbox.midtrans.com/v2/charge';
+        $uri = $this->midtransApiUrl . '/v2/charge';
         $authkey = 'Basic ' . base64_encode($this->serverKey);
         // dd($payment_method);
         $response = Http::withHeaders([

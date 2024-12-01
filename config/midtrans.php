@@ -1,5 +1,6 @@
 <?php
 
 return [
-  "key" => env("MIDTRANS_SERVER_KEY")
+  "serverKey" => env("MIDTRANS_SERVER_KEY"),
+  "apiUrl" => env("MIDTRANS_API_URL")
 ];
