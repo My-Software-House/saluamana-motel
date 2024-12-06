@@ -62,7 +62,7 @@
                 <p><strong>Nama Pelanggan:</strong> {{ $booking->user->name }}</p>
             </div>
             <div class="col-md-6">
-                <p><strong>Email:</strong> {{ $booking->user->email }}/p>
+                <p><strong>Email:</strong> {{ $booking->user->email }}</p>
             </div>
         </div>
         <div class="row mb-3">
