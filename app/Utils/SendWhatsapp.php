@@ -25,7 +25,7 @@ class SendWhatsapp {
             'countryCode' => '62', //optional
             ),
             CURLOPT_HTTPHEADER => array(
-                'Authorization: @cbpg@@SEQiHwme6fZVc' //change TOKEN to your actual token
+                'Authorization: 7J1cuxXszviRWh3rCKzJ' //change TOKEN to your actual token
             ),
             ));
 
