@@ -45,6 +45,9 @@ class BookingController extends Controller
                 'total_amount' => $result->total_amount,
                 'room_type_id' => $result->room_type_id,
                 'user_id' => $result->user_id,
+                'total_guest' => $result->total_guest,
+                'total_child' => $result->total_child,
+                'is_breakfast' => $result->is_breakfast,
             ];
 
             return response()->json([

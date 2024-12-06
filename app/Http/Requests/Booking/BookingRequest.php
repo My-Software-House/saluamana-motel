@@ -35,6 +35,9 @@ class BookingRequest extends FormRequest
             "total_amount" => ['required'],
             "total_room" => ['required'],
             "payment_method" => ['required'],
+            "total_guest" => ['required'],
+            "total_child" => ['required'],
+            "is_breakfast" => ['required'],
         ];
     }
 

@@ -41,6 +41,11 @@ class BookingServiceImpl implements BookingService{
         $phone = $req->input('phone');
         $name = $req->input('name');
         $payment_method = $req->input('payment_method');
+        $total_guest = $req->input('total_guest');
+        $total_child = $req->input('total_child');
+        $is_breakfast = $req->input('is_breakfast');
+
+
 
 
         $this->checkAvailableDate($check_in, $check_out, $room_id, $total_room);
@@ -75,7 +80,10 @@ class BookingServiceImpl implements BookingService{
                 'user_id' => $userCostumer->id,
                 'room_type_id' => $room_id,
                 'total_room' => $total_room,
-                'total_amount' => $total_amount
+                'total_amount' => $total_amount,
+                'total_guest' => $total_guest,
+                'total_child' => $total_child,
+                'is_breakfast' => $is_breakfast
             ];
 
             $booking = Booking::create($data);
