@@ -28,7 +28,7 @@ class CreateBookingRequest extends FormRequest
             "check_in" => ['required'],
             "check_out" => ['required'],
             "room_type_id" => ['required'],
-            "email" => ['required'],
+            // "email" => ['required'],
             "phone" => ['required'],
             "total_amount" => ['required'],
             "total_room" => ['required'],

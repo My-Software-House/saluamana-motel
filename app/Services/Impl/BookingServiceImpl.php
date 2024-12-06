@@ -135,7 +135,7 @@ class BookingServiceImpl implements BookingService{
             DB::beginTransaction();
 
             // create user customer
-            $userCostumer = User::where('email', $email)->first();
+            $userCostumer = User::where('phone', $phone)->first();
             if ($userCostumer == null) {
                 $userCostumer = User::create([
                     'name' => $name,

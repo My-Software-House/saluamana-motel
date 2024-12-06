@@ -13,7 +13,7 @@
                     </div>
                     <div class="form-group">
                         <label for="email">Email</label>
-                        <input type="email" class="form-control" name="email" id="email" required>
+                        <input type="email" class="form-control" name="email" id="email" >
                     </div>
                     <div class="form-group">
                         <label for="phone">Nomor Telepon</label>

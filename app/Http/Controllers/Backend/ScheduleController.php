@@ -68,10 +68,10 @@ class ScheduleController extends Controller
             PaymentException |
             BookingStatusNotFoundException $e
         ) {
-            toast($e->getMessage(), 'danger');
+            alert()->error('ErrorAlert', $e->getMessage());
             return redirect()->back();
         } catch (Exception $e) {
-            toast('Server Error', 'danger');
+            alert()->error('ErrorAlert','Server Error');
             return redirect()->back();
         }
     }
