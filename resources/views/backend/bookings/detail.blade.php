@@ -72,6 +72,7 @@
         </div>
         <hr>
 
+        @if ($booking->payment != null)
         <!-- Status Pembayaran -->
         <h5 class="mb-3">Pembayaran</h5>
         <div class="row mb-3">
@@ -96,6 +97,8 @@
             </div>
         </div>
         <hr>
+        @endif
+
 
         <!-- Kontrol Admin -->
         <h5 class="mb-3">Kontrol Administrasi</h5>

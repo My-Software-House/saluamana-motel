@@ -8,6 +8,7 @@ use App\Exceptions\PaymentException;
 use App\Exceptions\PhoneNumberNotFillException;
 use App\Exceptions\RoomNotFoundException;
 use App\Http\Requests\Booking\BookingRequest;
+use App\Http\Requests\Booking\CreateBookingRequest;
 use App\Models\Booking;
 use App\Models\BookingStatus;
 use App\Models\Payment;
@@ -44,9 +45,7 @@ class BookingServiceImpl implements BookingService{
         $total_guest = $req->input('total_guest');
         $total_child = $req->input('total_child');
         $is_breakfast = $req->input('is_breakfast');
-
-
-
+        $platform = $req->input('platform');
 
         $this->checkAvailableDate($check_in, $check_out, $room_id, $total_room);
 
@@ -83,7 +82,8 @@ class BookingServiceImpl implements BookingService{
                 'total_amount' => $total_amount,
                 'total_guest' => $total_guest,
                 'total_child' => $total_child,
-                'is_breakfast' => $is_breakfast
+                'is_breakfast' => $is_breakfast,
+                'platform' => $platform,
             ];
 
             $booking = Booking::create($data);
@@ -111,6 +111,68 @@ class BookingServiceImpl implements BookingService{
         } catch (\Exception $e) {
             DB::rollBack();
             dd($e);
+        }
+
+    }
+
+    function create(CreateBookingRequest $req)
+    {
+        $room_id = $req->input('room_type_id');
+        $check_in = $req->input('check_in');
+        $check_out = $req->input('check_out');
+        $total_amount = $req->input('total_amount');
+        $email = $req->input('email');
+        $total_room = $req->input('total_room');
+        $phone = $req->input('phone');
+        $name = $req->input('name');
+        $total_guest = $req->input('total_guest');
+        $total_child = $req->input('total_child');
+        $is_breakfast = $req->input('is_breakfast');
+
+        $this->checkAvailableDate($check_in, $check_out, $room_id, $total_room);
+
+        try {
+            DB::beginTransaction();
+
+            // create user customer
+            $userCostumer = User::where('email', $email)->first();
+            if ($userCostumer == null) {
+                $userCostumer = User::create([
+                    'name' => $name,
+                    'email' => $email,
+                    'phone' => $phone,
+                    'role' => 'customer',
+                    'password' => null
+                ]);
+            }
+
+            $idBooking = $this->generateIdBooking();
+            $booking_status_id = 2; // sudah terbayar
+            $this->checkStatusBooking($booking_status_id);
+            # get duration
+            $duration = $this->getDuration($check_in, $check_out);
+
+            $data = [
+                'check_in' => $check_in,
+                'check_out' => $check_out,
+                'booking_id' => $idBooking,
+                'booking_status_id' => $booking_status_id,
+                'duration' => $duration,
+                'user_id' => $userCostumer->id,
+                'room_type_id' => $room_id,
+                'total_room' => $total_room,
+                'total_amount' => $total_amount,
+                'total_guest' => $total_guest,
+                'total_child' => $total_child,
+                'is_breakfast' => $is_breakfast
+            ];
+
+            $booking = Booking::create($data);
+            DB::commit();
+
+            return $booking;
+        } catch (\Exception $e) {
+            DB::rollBack();
         }
 
     }

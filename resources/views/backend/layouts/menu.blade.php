@@ -54,7 +54,7 @@
     <div class="collapse" id="jadwalbooking">
         <ul class="nav flex-column sub-menu">
             <li class="nav-item">
-                <a class="nav-link" href="">Tambah Jadwal </a>
+                <a class="nav-link" href="{{ route('backend.schedules.create') }}">Tambah Jadwal </a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="{{ route('backend.schedules.index') }}"> Jadwal</a>
