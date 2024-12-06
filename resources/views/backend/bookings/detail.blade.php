@@ -9,48 +9,55 @@
     <div class="card-body">
         <!-- Informasi Booking -->
         <h5 class="mb-3">Informasi Booking</h5>
-        <div class="row mb-3">
-            <div class="col-md-6">
-                <p><strong>Kode/ID Booking:</strong> <span class="text-primary">{{ $booking->booking_id }}</span></p>
+        <div class="row">
+            <div class="col-md-8">
+                <div class="row mb-3">
+                <div class="col-md-6">
+                    <p><strong>Kode/ID Booking:</strong> <span class="text-primary">{{ $booking->booking_id }}</span></p>
+                </div>
+                <div class="col-md-6">
+                    <p><strong>Tanggal Booking:</strong> {{ $booking->created_at }}</p>
+                </div>
             </div>
-            <div class="col-md-6">
-                <p><strong>Tanggal Booking:</strong> {{ $booking->created_at }}</p>
+            <div class="row mb-3">
+                <div class="col-md-6">
+                    <p><strong>Tipe Kamar:</strong> {{ $booking->roomType->name }}</p>
+                </div>
+                <div class="col-md-6">
+                    <p><strong>Status Booking:</strong> <span class="badge bg-warning text-dark">{{ $booking->bookingStatus->name }}</span></p>
+                </div>
             </div>
-        </div>
-        <div class="row mb-3">
-            <div class="col-md-6">
-                <p><strong>Tipe Kamar:</strong> {{ $booking->roomType->name }}</p>
+            <div class="row mb-3">
+                <div class="col-md-6">
+                    <p><strong>Jumlah Tamu:</strong> {{ $booking->total_guest }} Dewasa</p>
+                </div>
+                <div class="col-md-6">
+                    <p><strong>Jumlah Anak-Anak:</strong> {{ $booking->total_child }} Anak</p>
+                </div>
             </div>
-            <div class="col-md-6">
-                <p><strong>Status Booking:</strong> <span class="badge bg-warning text-dark">{{ $booking->bookingStatus->name }}</span></p>
+            <div class="row mb-3">
+                <div class="col-md-6">
+                    <p><strong>Check-In:</strong> {{ $booking->check_in }}</p>
+                </div>
+                <div class="col-md-6">
+                    <p><strong>Check-Out:</strong> {{ $booking->check_out }}</p>
+                </div>
             </div>
-        </div>
-        <div class="row mb-3">
-            <div class="col-md-6">
-                <p><strong>Jumlah Tamu:</strong> {{ $booking->total_guest }} Dewasa</p>
+            <div class="row mb-3">
+                <div class="col-md-6">
+                    <p><strong>Layanan Breakfast:</strong> @if ($booking->is_breakfast)
+                    <span class="badge bg-success text-white">Termasuk</span></p>
+                    @else
+                    <span class="badge bg-danger">Tidak Termasuk</span></p>
+                    @endif
+                </div>
+                <div class="col-md-6">
+                    <p><strong>Jumlah Kamar:</strong> {{ $booking->total_room }} Kamar</p>
+                </div>
             </div>
-            <div class="col-md-6">
-                <p><strong>Jumlah Anak-Anak:</strong> {{ $booking->total_child }} Anak</p>
             </div>
-        </div>
-        <div class="row mb-3">
-            <div class="col-md-6">
-                <p><strong>Check-In:</strong> {{ $booking->check_in }}</p>
-            </div>
-            <div class="col-md-6">
-                <p><strong>Check-Out:</strong> {{ $booking->check_out }}</p>
-            </div>
-        </div>
-        <div class="row mb-3">
-            <div class="col-md-6">
-                <p><strong>Layanan Breakfast:</strong> @if ($booking->is_breakfast)
-                <span class="badge bg-success text-white">Termasuk</span></p>
-                @else
-                <span class="badge bg-danger">Tidak Termasuk</span></p>
-                @endif
-            </div>
-            <div class="col-md-6">
-                <p><strong>Jumlah Kamar:</strong> {{ $booking->total_room }} Kamar</p>
+            <div class="col-md-4">
+                <img class="img-fluid d-abs" src="{{ asset('main-logo.png') }}" alt="">
             </div>
         </div>
         <hr>
