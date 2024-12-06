@@ -4,6 +4,7 @@ use App\Http\Controllers\Backend\AmenitiesController;
 use App\Http\Controllers\Backend\BookingController;
 use App\Http\Controllers\Backend\CustomerController;
 use App\Http\Controllers\Backend\RoomTypeController;
+use App\Http\Controllers\Backend\ScheduleController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -58,6 +59,13 @@ Route::get('/dashboard', function () {
     Route::as('customers.')
         ->prefix('customers')
         ->controller(CustomerController::class)
+        ->group(function() {
+            Route::get('/', 'index')->name('index');
+        });
+
+    Route::as('schedules.')
+        ->prefix('schedules')
+        ->controller(ScheduleController::class)
         ->group(function() {
             Route::get('/', 'index')->name('index');
         });
