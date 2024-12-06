@@ -64,7 +64,8 @@
                             <option value="Traveloka">Traveloka</option>
                             <option value="Agoda">Agoda</option>
                             <option value="Booking.com">Booking.com</option>
-                            <option value="Website">Website</option>
+                            {{-- <option value="Website">Website</option> --}}
+                            <option value="Whatsapp">Whatsapp</option>
                         </select>
                     </div>
                     <button type="submit" class="btn btn-primary">Tambah Booking</button>
