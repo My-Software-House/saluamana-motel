@@ -21,8 +21,8 @@
                   <th>ID Booking</th>
                   <th>Nama Customer</th>
                   <th>Nomer Hp</th>
-                  <th>Cek In</th>
-                  <th>Cek Out</th>
+                  {{-- <th>Cek In</th>
+                  <th>Cek Out</th> --}}
                   <th>Kamar</th>
                   <th>Durasi</th>
                   <th>Total Amount</th>
@@ -42,8 +42,8 @@
                     <td>{{ $booking->booking_id }}</td>
                     <td>{{ $booking->user->name }}</td>
                     <td>{{ $booking->user->phone }}</td>
-                    <td>{{ $booking->check_in }}</td>
-                    <td>{{ $booking->check_out }}</td>
+                    {{-- <td>{{ $booking->check_in }}</td>
+                    <td>{{ $booking->check_out }}</td> --}}
                     <td>{{ $booking->total_room }} Kamar - {{ $booking->roomType->name }}</td>
                     <td>{{ $booking->duration }} Hari</td>
                     <td>Rp. {{ $booking->total_amount }}</td>
@@ -53,19 +53,13 @@
                     </td>
 
                     <td class="d-flex">
-                        <a href="{{ route('backend.rooms-types.detail', ['id' => $booking->id]) }}" class="btn btn-sm btn-info mr-2">Detail</a>
-                        <a href="{{ route('backend.rooms-types.edit', ['id' => $booking->id]) }}" class="btn btn-sm btn-info mr-2">Edit</a>
-                        <a class="btn btn-sm btn-danger btn-sm">Hapus</a>
-                      {{-- <form method="POST" action="{{ route('backend.amenities-types.delete', ['id' => $amenity->id ]) }}" onsubmit="return confirm('Yakin ingin menghapus data?');">
-                        @csrf
-                        @method('DELETE')
-                        <button type="submit" class="btn btn-danger btn-xs">Delete</button>
-                      </form> --}}
+                        <a href="{{ route('backend.bookings.detail', ['id' => $booking->id]) }}" class="btn btn-sm btn-info mr-2">Detail</a>
                     </td>
                   </tr>
                 @endforeach
               </tbody>
             </table>
+            {{ $bookings->links() }}
         </div>
       </div>
     </div>

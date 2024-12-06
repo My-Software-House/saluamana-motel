@@ -35,19 +35,33 @@
 </li>
 <li class="nav-item">
     <a class="nav-link" href="#">
-        <i class="icon-grid menu-icon"></i>
+        <i class="icon-printer menu-icon"></i>
         <span class="menu-title">Voucher</span>
     </a>
 </li>
 <li class="nav-item">
     <a class="nav-link" href="#">
-        <i class="icon-grid menu-icon"></i>
+        <i class="icon-book menu-icon"></i>
         <span class="menu-title">Pembayaran</span>
     </a>
 </li>
 <li class="nav-item">
     <a class="nav-link" href="#">
-        <i class="icon-grid menu-icon"></i>
+        <i class="fa-regular fa-calendar menu-icon"></i>
         <span class="menu-title">Jadwal Booking</span>
+    </a>
+</li>
+
+<li class="nav-item">
+    <a class="nav-link" href="#">
+        <i class="fa-solid fa-users menu-icon"></i>
+        <span class="menu-title">Customer</span>
+    </a>
+</li>
+
+<li class="nav-item">
+    <a class="nav-link" href="#">
+        <i class="fa-regular fa-user menu-icon"></i>
+        <span class="menu-title">User Admin</span>
     </a>
 </li>
