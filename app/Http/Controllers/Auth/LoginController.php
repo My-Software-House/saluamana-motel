@@ -44,16 +44,4 @@ class LoginController extends Controller
         return view('backend.auth.login');
     }
 
-    protected function authenticated(Request $request, $user)
-    {
-        if ($user->role === 'admin') {
-            return redirect()->route('backend.dashboard'); // Define a route for admin
-        } elseif ($user->role === 'customer') {
-            return redirect()->route('user.dashboard'); // Define a route for regular users
-        }
-
-        // Default redirection for other roles
-        return redirect()->route('home');
-    }
-
 }

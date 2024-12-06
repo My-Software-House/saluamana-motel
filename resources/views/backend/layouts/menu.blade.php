@@ -33,27 +33,39 @@
         </ul>
     </div>
 </li>
-<li class="nav-item">
+{{-- <li class="nav-item">
     <a class="nav-link" href="#">
         <i class="icon-printer menu-icon"></i>
         <span class="menu-title">Voucher</span>
     </a>
-</li>
-<li class="nav-item">
+</li> --}}
+{{-- <li class="nav-item">
     <a class="nav-link" href="#">
         <i class="icon-book menu-icon"></i>
         <span class="menu-title">Pembayaran</span>
     </a>
-</li>
+</li> --}}
 <li class="nav-item">
-    <a class="nav-link" href="#">
+    <a class="nav-link" data-toggle="collapse" href="#jadwalbooking" aria-expanded="false" aria-controls="booking">
         <i class="fa-regular fa-calendar menu-icon"></i>
         <span class="menu-title">Jadwal Booking</span>
+        <i class="menu-arrow"></i>
     </a>
+    <div class="collapse" id="jadwalbooking">
+        <ul class="nav flex-column sub-menu">
+            <li class="nav-item">
+                <a class="nav-link" href="#">Tambah Jadwal </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#"> Jadwal</a>
+            </li>
+        </ul>
+    </div>
 </li>
 
+
 <li class="nav-item">
-    <a class="nav-link" href="#">
+    <a class="nav-link" href="{{ route('backend.customers.index') }}">
         <i class="fa-solid fa-users menu-icon"></i>
         <span class="menu-title">Customer</span>
     </a>

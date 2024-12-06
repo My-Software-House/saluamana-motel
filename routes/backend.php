@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Backend\AmenitiesController;
 use App\Http\Controllers\Backend\BookingController;
+use App\Http\Controllers\Backend\CustomerController;
 use App\Http\Controllers\Backend\RoomTypeController;
 use Illuminate\Support\Facades\Route;
 
@@ -16,8 +17,8 @@ use Illuminate\Support\Facades\Route;
 |
 */
 Auth::routes();
-// Route::middleware('auth')
-// ->group(function(){
+Route::middleware('auth')
+->group(function(){
 Route::get('/dashboard', function () {
     return view('backend.dashboards.index');
 })->name('dashboard');
@@ -54,4 +55,10 @@ Route::get('/dashboard', function () {
             Route::get('/{id}', 'detail')->name('detail');
         });
 
-// });
+    Route::as('customers.')
+        ->prefix('customers')
+        ->controller(CustomerController::class)
+        ->group(function() {
+            Route::get('/', 'index')->name('index');
+        });
+});
