@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-    <title>Surat Penempatan - </title>
+    <title>Invoice Salu Amana </title>
     <style>
         header {
             top: 0cm;
@@ -65,80 +65,76 @@
         <img src="header-invoice.png" width="100%"/>
     </header>
     <div id="halaman">
-        <h1 style="text-align: center">Invoince</h1>
+        <h1 style="text-align: center">Invoice</h1>
 
         <div class="isi mt-5">
             <table class="table " style="border: 0px; font-size: 18px">
                 <tr>
                     <td style="width: 30%">Nomor/ Tanggal</td>
                     <td>:</td>
-                    <th style="width: 70%">{{ $booking->booking_id }}</th>
+                    <td style="width: 70%"><b>{{ $booking->booking_id }} /</b> {{ Carbon\Carbon::parse($booking->created_at)->translatedFormat('d M Y') }}</td>
                 </tr>
                 <tr>
                     <td>Tanggal Cek in</td>
                     <td>:</td>
-                    <th>{{ $booking->check_in }}</th>
+                    <td>{{ Carbon\Carbon::parse($booking->check_in)->translatedFormat('d M Y') }}</th>
                 </tr>
                 <tr>
                     <td>Tanggal Cek Out</td>
                     <td>:</td>
-                    <th>{{ $booking->check_out }}</th>
+                    <td>{{ Carbon\Carbon::parse($booking->check_out)->translatedFormat('d M Y') }}</th>
                 </tr>
                 <tr>
                     <td>Nama</td>
                     <td>:</td>
-                    <th>{{ $booking->user->name }}</th>
+                    <td>{{ $booking->user->name }}</td>
                 </tr>
                 <tr>
                     <td>No Hp / Email</td>
                     <td>:</td>
-                    <th>{{ $booking->user->phone }} / {{ $booking->user->email }}</th>
+                    <td>{{ $booking->user->phone }} / {{ $booking->user->email }}</td>
                 </tr>
                 <tr>
                     <td>Tipe Kamar</td>
                     <td>:</td>
-                    <th>{{ $booking->roomType->name }}</th>
+                    <td>{{ $booking->roomType->name }}</td>
                 </tr>
                 <tr>
                     <td>Jumlah Tamu</td>
                     <td>:</td>
-                    <th>{{ $booking->total_room }}</th>
+                    <td>{{ $booking->total_room }} Tamu , {{ $booking->total_child }} Anak</td>
                 </tr>
                 <tr>
                     <td>Layanan Sarapan</td>
                     <td>:</td>
-                    <th>
+                    <td>
                         @if ($booking->is_breakfast)
                             Termasuk
                         @else
                             Tidak Termasuk
                         @endif
-                    </th>
+                    </td>
                 </tr>
 
                 <tr>
                     <td>Total Tagihan </td>
                     <td>:</td>
-                    <th> Rp. {{ number_format($booking->total_amount) }}</th>
+                    <td> <b> Rp. {{ number_format($booking->total_amount) }} </b> (Termasuk biaya pajak 10%)</td>
                 </tr>
             </table>
 
             <table class="table text-center mt-5" style="border: 0px; font-size: 18px">
                 <tr>
-                    <td style="width: 150px"><b>Tamu Menginap</b></td>
-                    <td style="width: 150px"><b>Resepsionis</b></td>
+                    <td style="width: 70%"></td>
+                    <td style="width: 150px"><b>Tamu Menginap</b> <br> Menyetujui </td>
                 </tr>
                 <br>
                 <br>
                 <br>
-                <br>
                 <tr>
+                    <td style="width: 70%"></td>
                     <td style="width: 150px; padding: 20px">
-                        <hr>
-                        <br>
-                    </td>
-                    <td style="width: 150px; padding: 20px">
-                        <hr>
+                        {{ $booking->user->name }}
                         <br>
                     </td>
                 </tr>

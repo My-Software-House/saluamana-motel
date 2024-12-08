@@ -28,6 +28,7 @@ class BookingController extends Controller
 
     public function generateInvoice($id)
     {
+        setlocale(LC_ALL, 'IND');
         $booking = Booking::find($id);
 
         $pdf = Pdf::loadView('backend.bookings.pdf', compact('booking'));
