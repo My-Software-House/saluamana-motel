@@ -23,11 +23,32 @@ class ScheduleController extends Controller
         $this->bookingService = $bookingService;
     }
 
-    public function index() {
-        // Ambil data booking dari database
-        $bookings = Booking::with(['user', 'roomType', 'bookingStatus'])->get();
+    public function index()
+    {
+        // Mengambil semua tipe kamar
+        $roomTypes = RoomType::all();
 
-        // Format data untuk FullCalendar
+        return view('backend.schedules.index', compact('roomTypes'));
+    }
+
+    // Fungsi untuk mengambil data event berdasarkan filter tipe kamar
+    public function getEvents(Request $request)
+    {
+        // Ambil tipe kamar yang dipilih dari request
+        $roomTypeId = $request->input('room_type');
+
+        // Query data booking dan filter berdasarkan tipe kamar (jika ada)
+        $query = Booking::with(['user', 'roomType', 'bookingStatus']);
+
+        // Jika ada filter tipe kamar
+        if ($roomTypeId) {
+            $query->where('room_type_id', $roomTypeId); // Filter berdasarkan tipe kamar
+        }
+
+        // Ambil data booking sesuai dengan filter
+        $bookings = $query->get();
+
+        // Format data booking untuk FullCalendar
         $events = $bookings->map(function ($booking) {
             return [
                 'id' => $booking->id,
@@ -38,15 +59,20 @@ class ScheduleController extends Controller
                 'extendedProps' => [
                     'booking_id' => $booking->booking_id,
                     'total_amount' => $booking->total_amount,
+                    'total_room' => $booking->total_room,
                     'duration' => $booking->duration,
                     'status' => $booking->bookingStatus->name,
-                    'detail_url' => route('backend.bookings.detail', ['id' => $booking->id]), // URL detail booking
+                    'status_id' => $booking->bookingStatus->id,
+                    'detail_url' => route('backend.bookings.detail', ['id' => $booking->id]),
+                    'customer_name' => $booking->user->name, // Menambahkan nama pelanggan
                 ],
             ];
         });
 
-        return view('backend.schedules.index', ['events' => $events]);
+        // Kembalikan response dalam format JSON
+        return response()->json($events);
     }
+
 
     public function create() {
         $roomTypes = RoomType::all();

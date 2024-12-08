@@ -55,6 +55,10 @@ Route::get('/dashboard', function () {
             Route::get('/', 'index')->name('index');
             Route::get('/{id}', 'detail')->name('detail');
             Route::get('/{id}/generate-invoice', 'generateInvoice')->name('generate-invoice');
+            Route::get('/{id}/checkin', 'checkin')->name('checkin');
+            Route::get('/{id}/cancel', 'cancel')->name('cancel');
+            Route::get('/{id}/done', 'done')->name('done');
+
         });
 
     Route::as('customers.')
@@ -71,5 +75,6 @@ Route::get('/dashboard', function () {
             Route::get('/', 'index')->name('index');
             Route::get('/create', 'create')->name('create');
             Route::post('/', 'store')->name('store');
+            Route::get('/get-events', 'getEvents')->name('getEvents');
         });
 });

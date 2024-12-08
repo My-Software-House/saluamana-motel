@@ -111,11 +111,11 @@
         <h5 class="mb-3">Kontrol Administrasi</h5>
         <div class="d-flex justify-content-between">
             <div>
-                <button class="btn btn-success">Tandai Lunas</button>
-                <button class="btn btn-warning">Ubah Status</button>
+                <a href="{{ route('backend.bookings.checkin', ['id' => $booking->id]) }}" class="btn btn-info">Tandai Checkin</a>
+                <a href="{{ route('backend.bookings.done', ['id' => $booking->id]) }}" class="btn btn-success">Tandai Telah Selesai</a>
                 <a href="{{ route('backend.bookings.generate-invoice', ['id' => $booking->id]) }}" target="_blank" class="btn btn-primary">Cetak Invoice</a>
             </div>
-            <button class="btn btn-danger">Batalkan Booking</button>
+            <a href="{{ route('backend.bookings.cancel', ['id' => $booking->id]) }}" class="btn btn-danger">Batalkan Booking</a>
         </div>
     </div>
 </div>

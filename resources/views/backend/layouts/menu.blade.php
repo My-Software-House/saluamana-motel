@@ -71,9 +71,9 @@
     </a>
 </li>
 
-<li class="nav-item">
+{{-- <li class="nav-item">
     <a class="nav-link" href="#">
         <i class="fa-regular fa-user menu-icon"></i>
         <span class="menu-title">User Admin</span>
     </a>
-</li>
+</li> --}}

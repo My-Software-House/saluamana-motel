@@ -31,6 +31,32 @@ class BookingController extends Controller
         $booking = Booking::find($id);
 
         $pdf = Pdf::loadView('backend.bookings.pdf', compact('booking'));
-        return $pdf->stream($booking->name . '-INVOICE-SA.pdf');
+        return $pdf->stream($booking->user->name . '-INVOICE-SA.pdf');
+    }
+
+    public function checkin($id)
+    {
+        $booking = Booking::find($id);
+        $booking->booking_status_id = 3;
+        $booking->save();
+        toast('Status Booking Checkin','success');
+        return redirect()->back();
+    }
+    public function cancel($id)
+    {
+        $booking = Booking::find($id);
+        $booking->booking_status_id = 5;
+        $booking->save();
+        toast('Status Booking Cancel','success');
+        return redirect()->back();
+    }
+
+    public function done($id)
+    {
+        $booking = Booking::find($id);
+        $booking->booking_status_id = 4;
+        $booking->save();
+        toast('Status Booking Cancel','success');
+        return redirect()->back();
     }
 }
