@@ -16,7 +16,7 @@
                     <p><strong>Kode/ID Booking:</strong> <span class="text-primary">{{ $booking->booking_id }}</span></p>
                 </div>
                 <div class="col-md-6">
-                    <p><strong>Tanggal Booking:</strong> {{ $booking->created_at }}</p>
+                    <p><strong>Tanggal Booking:</strong> {{ Carbon\Carbon::parse($booking->created_at)->translatedFormat('d M Y') }}</p>
                 </div>
             </div>
             <div class="row mb-3">
@@ -37,10 +37,10 @@
             </div>
             <div class="row mb-3">
                 <div class="col-md-6">
-                    <p><strong>Check-In:</strong> {{ $booking->check_in }}</p>
+                    <p><strong>Check-In:</strong> {{ Carbon\Carbon::parse($booking->check_in)->translatedFormat('d M Y') }}</p>
                 </div>
                 <div class="col-md-6">
-                    <p><strong>Check-Out:</strong> {{ $booking->check_out }}</p>
+                    <p><strong>Check-Out:</strong> {{ Carbon\Carbon::parse($booking->check_out)->translatedFormat('d M Y') }}</p>
                 </div>
             </div>
             <div class="row mb-3">
