@@ -79,16 +79,16 @@
         </div>
         <hr>
 
-        @if ($booking->payment != null)
+        {{-- @if ($booking->payment != null) --}}
         <!-- Status Pembayaran -->
         <h5 class="mb-3">Pembayaran</h5>
         <div class="row mb-3">
             <div class="col-md-6">
-                <p><strong>Total Harga:</strong> Rp {{ number_format($booking->payment->total_amount) }}</p>
+                <p><strong>Total Tagihan:</strong> Rp {{ number_format($booking->payment->total_amount ?? $booking->total_amount) }}</p>
             </div>
             <div class="col-md-6">
                 <p><strong>Status:</strong>
-                @if ($booking->payment->status_payment == 'paid')
+                @if ($booking->payment->status_payment ?? "" != "unpaid")
                 <span class="badge bg-success text-white">Sudah Terbayar</span>
                 @else
                 <span class="badge bg-danger">Belum Terbayar</span>
@@ -100,11 +100,11 @@
                 <p><strong>Metode Pembayaran:</strong> Transfer Bank</p>
             </div>
             <div class="col-md-6">
-                <p><strong>Virtual Account:</strong> {{ $booking->payment->payment_code }} (Bank {{ strtoupper($booking->payment->payment_method) }})</p>
+                <p><strong>Virtual Account:</strong> {{ $booking->payment->payment_code ?? "" }} (Bank {{ strtoupper($booking->payment->payment_method ?? "") }})</p>
             </div>
         </div>
         <hr>
-        @endif
+        {{-- @endif --}}
 
 
         <!-- Kontrol Admin -->
@@ -113,6 +113,7 @@
             <div>
                 <button class="btn btn-success">Tandai Lunas</button>
                 <button class="btn btn-warning">Ubah Status</button>
+                <a href="{{ route('backend.bookings.generate-invoice', ['id' => $booking->id]) }}" target="_blank" class="btn btn-primary">Cetak Invoice</a>
             </div>
             <button class="btn btn-danger">Batalkan Booking</button>
         </div>

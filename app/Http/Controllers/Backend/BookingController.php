@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Backend;
 use App\Http\Controllers\Controller;
 use App\Models\Booking;
 use App\Models\BookingStatus;
+use Barryvdh\DomPDF\Facade\Pdf;
 use Illuminate\Http\Request;
 
 class BookingController extends Controller
@@ -23,5 +24,13 @@ class BookingController extends Controller
     public function detail($id) {
         $booking = Booking::find($id);
         return view('backend.bookings.detail', compact('booking'));
+    }
+
+    public function generateInvoice($id)
+    {
+        $booking = Booking::find($id);
+
+        $pdf = Pdf::loadView('backend.bookings.pdf', compact('booking'));
+        return $pdf->stream($booking->name . '-INVOICE-SA.pdf');
     }
 }

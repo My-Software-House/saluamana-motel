@@ -54,6 +54,7 @@ Route::get('/dashboard', function () {
         ->group(function() {
             Route::get('/', 'index')->name('index');
             Route::get('/{id}', 'detail')->name('detail');
+            Route::get('/{id}/generate-invoice', 'generateInvoice')->name('generate-invoice');
         });
 
     Route::as('customers.')
