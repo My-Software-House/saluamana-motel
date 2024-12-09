@@ -23,6 +23,7 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 Route::prefix('booking')
     ->controller(App\Http\Controllers\Api\BookingController::class)
     ->group(function() {
+        Route::get('/{id}/generate-invoice', 'generateInvoice');
         Route::post('/', 'booking');
         Route::get('/unavailable-dates', 'getUnavailableDates');
         Route::get('/{idBooking}', 'detail');

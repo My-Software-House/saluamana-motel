@@ -12,6 +12,8 @@ class RoomTypeController extends Controller
 {
     public function search(Request $request) {
         try {
+            $perPage = $request->get('per_page', 10);
+
             $roomType = RoomType::query();
 
             // Check and apply filters dynamically
@@ -24,17 +26,23 @@ class RoomTypeController extends Controller
             });
 
             // Execute roomType and paginate results
-            $results = $roomType->with('amenities')->with('images')->get();
+            $results = $roomType->with('amenities')->with('images')->paginate($perPage);
 
         } catch (Exception $e) {
             return response()->json([
                 'data' => [],
-                'message'=>$e->getMessage()
+                'message'=>$e->getMessage(),
             ], JsonResponse::HTTP_INTERNAL_SERVER_ERROR);
         }
         return response()->json([
             'message' => 'success',
-            'data' => $results,
+            'data' => $results->items(),
+            'meta' => [
+                'current_page' => $results->currentPage(),
+                'last_page' => $results->lastPage(),
+                'per_page' => $results->perPage(),
+                'total' => $results->total(),
+            ]
         ], JsonResponse::HTTP_OK);
     }
 

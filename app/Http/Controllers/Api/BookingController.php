@@ -12,6 +12,7 @@ use App\Http\Requests\Booking\BookingRequest;
 use App\Models\Booking;
 use App\Models\RoomType;
 use App\Services\BookingService;
+use Barryvdh\DomPDF\Facade\Pdf;
 use Exception;
 use Illuminate\Http\Exceptions\HttpResponseException;
 use Illuminate\Http\Request;
@@ -150,5 +151,15 @@ class BookingController extends Controller
             "message" => "success",
             "data" => $booking
         ]);
+    }
+
+
+    public function generateInvoice($id)
+    {
+        setlocale(LC_ALL, 'IND');
+        $booking = Booking::find($id);
+
+        $pdf = Pdf::loadView('backend.bookings.pdf', compact('booking'));
+        return $pdf->stream($booking->user->name . '-INVOICE-SA.pdf');
     }
 }

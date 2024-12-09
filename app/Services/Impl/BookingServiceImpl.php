@@ -296,6 +296,7 @@ class BookingServiceImpl implements BookingService{
             $totalBookedRooms = Booking::where('room_type_id', $room_type_id)
                 ->where('check_in', '<=', $formattedDate)
                 ->where('check_out', '>=', $formattedDate)
+                ->where('booking_status_id', "!=", 5)
                 ->sum('total_room');
 
             // Tambahkan jumlah kamar yang ingin dipesan ke total kamar yang sudah terbooking
