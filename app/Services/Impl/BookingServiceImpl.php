@@ -236,11 +236,12 @@ class BookingServiceImpl implements BookingService{
         # check room
         $room = $this->checkRoom($booking->room_type_id);
 
-        $number = "085155380996";
+        $name = $booking->user->name;
+        $number = "081328344002";
         $message = <<<EOT
         Hallo Admin Salu Amana,
 
-        Pesan ini dari Salu Amana Resdence, terdapat booking baru untuk kamar $room->name pada tanggal $booking->check_in sampai $booking->check_out.
+        Pesan ini dari Salu Amana Resdence, terdapat booking baru untuk kamar $room->name atas nama $name pada tanggal $booking->check_in sampai $booking->check_out.
 
         Terimakasih.
         EOT;
