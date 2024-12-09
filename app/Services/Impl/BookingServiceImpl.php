@@ -209,18 +209,21 @@ class BookingServiceImpl implements BookingService{
         $customer = $this->checkCustomerAndPhone($booking->user_id);
 
         $payment_method = strtoupper($booking->payment->payment_method);
-        $total = $booking->payment->total_amount;
+        $total = number_format($booking->payment->total_amount);
         $va = $booking->payment->payment_code;
 
-
+        $idBooking = $booking->booking_id;
         $number = $customer->phone;
+        $check_in = Carbon::parse($booking->check_in)->translatedFormat('d M Y');
+
         $message = <<<EOT
         Hi $customer->name,
 
         Terima kasih atas pemesanan Anda di Salu Amana Residence!
 
-        Kami telah menerima pemesanan Anda untuk Single Room pada tanggal $booking->check_in.
-        Silakan lakukan pembayaran di nomer VA $payment_method : $va, dengan jumlah Rp.$total
+        Kami telah menerima pemesanan Anda dengan ID Booking : *$idBooking* untuk Single Room pada tanggal *$check_in*.
+
+        Silakan lakukan pembayaran di nomer VA $payment_method : $va, dengan jumlah Rp $total
 
         Terima kasih dan kami menantikan kedatangan Anda!
         EOT;
