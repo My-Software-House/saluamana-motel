@@ -370,12 +370,17 @@ class BookingServiceImpl implements BookingService{
             "bank_transfer" => [
                 "bank" => $payment_method
             ],
-            'customer_details' => [
-            'first_name' => $booking->user->name,
-            'last_name' => '',
-            'email' => $booking->user->email,
-            'phone' => $booking->user->phone_number,
+                'customer_details' => [
+                'first_name' => $booking->user->name,
+                'last_name' => '',
+                'email' => $booking->user->email,
+                'phone' => $booking->user->phone_number,
             ],
+            "custom_expiry" => [
+                "order_time" => Carbon::now('Asia/Bangkok')->format('Y-m-d H:i:s P'),
+                "expiry_duration"=> 60,
+                "unit" => "minute"
+            ]
         ]);
 
         if($response->object()->status_code != 201) {

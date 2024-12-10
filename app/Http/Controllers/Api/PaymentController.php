@@ -31,6 +31,20 @@ class PaymentController extends Controller
 
                 SendWhatsapp::send($number, $message);
             }
+
+            if ($request->transaction_status == 'expire' || $request->transaction_status == 'deny' || $request->transaction_status == 'cancel') {
+                $booking = Booking::where('id', $payment->booking_id)->first();
+                $booking->booking_status_id = 5;
+                $booking->save();
+
+                $number = $booking->user->phone;
+                $room = $booking->roomType->name;
+                $message = <<<EOT
+                Pembayaran anda di salu amanana residence dengen ID booking $booking->booking_id pada kamar $room sudah expired / ditolak.
+                EOT;
+
+                SendWhatsapp::send($number, $message);
+            }
         }
     }
 }

@@ -6,7 +6,7 @@
         <div class="card">
             <div class="card-body">
                 <h4 class="card-title">Jadwal Kamar Terbooking</h4>
-
+                <a href="{{ route('backend.schedules.create') }}" class="btn btn-primary btn-md my-2">Tambah Jadwal Booking</a>
                 <!-- Dropdown Filter Tipe Kamar -->
                 <select id="roomTypeFilter" class="form-control">
                     <option value="">Pilih Tipe Kamar</option>

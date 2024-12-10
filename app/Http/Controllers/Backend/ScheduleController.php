@@ -88,7 +88,7 @@ class ScheduleController extends Controller
 
             toast('Berhasil menambah jadwal booking','success');
 
-            return redirect()->back();
+            return redirect()->route('backend.schedules.index');
 
         } catch (PhoneNumberNotFillException |
             RoomNotFoundException |

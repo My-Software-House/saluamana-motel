@@ -7,18 +7,7 @@
                 <h4 class="card-title">Tambah Jadwal Booking</h4>
                 <form action="{{ route('backend.schedules.store') }}" method="POST">
                     @csrf
-                    {{-- <div class="form-group">
-                        <label for="name">Nama Pelanggan</label>
-                        <input type="text" class="form-control" name="name" id="name" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="email">Email</label>
-                        <input type="email" class="form-control" name="email" id="email" >
-                    </div>
-                    <div class="form-group">
-                        <label for="phone">Nomor Telepon</label>
-                        <input type="text" class="form-control" name="phone" id="phone" required>
-                    </div> --}}
+
                     <div class="form-group">
                         <label for="room_type_id">Pilih Tamu</label>
                         <select name="user_id" class="js-example-basic-single w-100">
@@ -27,7 +16,7 @@
                                 <option value="{{ $user->id }}">{{ $user->name }} - {{ $user->phone }}</option>
                             @endforeach
                         </select>
-                        <p class="mt-2">Jika tamu belum terdaftar silahkan daftarkan tamu <a class="btn btn-sm btn-primary">+</a></p>
+                        <p class="mt-2">Jika tamu belum terdaftar silahkan daftarkan tamu <a href="{{ route('backend.customers.create') }}" class="btn btn-sm btn-primary">+</a></p>
                     </div>
                     <div class="form-group">
                         <label for="check_in">Check-In</label>

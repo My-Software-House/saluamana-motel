@@ -9,8 +9,8 @@
     <div class="col-md-12 grid-margin stretch-card">
       <div class="card">
         <div class="card-body">
-          <h4 class="card-title">Daftar Customer
-        </h4>
+          <h4 class="card-title">Daftar Customer</h4>
+          <a href="{{ route('backend.customers.create') }}" class="btn btn-primary btn-md my-2">Tambah Customer</a>
           <div class="table-responsive">
             <table class="table">
               <thead>
@@ -35,7 +35,7 @@
                     <td>{{ $customer->email }}</td>
                     <td>{{ $customer->phone }}</td>
                     <td class="d-flex">
-                        <a href="{{ route('backend.bookings.detail', ['id' => $customer->id]) }}" class="btn btn-sm btn-info mr-2">Detail</a>
+                        <a href="{{ route('backend.customers.edit', ['id' => $customer->id]) }}" class="btn btn-sm btn-primary mr-2">Edit</a>
                     </td>
                   </tr>
                 @endforeach

@@ -27,10 +27,10 @@ class BookingController extends Controller
     }
 
     public function index(Request $request) {
-        $bookings = Booking::paginate(10);
+        $bookings = Booking::orderBy('created_at', 'DESC')->paginate(10);
 
         if ($request->query('booking_status_id') != null) {
-            $bookings = Booking::where('booking_status_id', $request->query('booking_status_id'))->paginate(10);
+            $bookings = Booking::orderBy('created_at', 'DESC')->where('booking_status_id', $request->query('booking_status_id'))->paginate(10);
         }
 
         $bookinStatus = BookingStatus::find($request->query('booking_status_id'));
