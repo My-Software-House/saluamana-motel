@@ -54,6 +54,7 @@
 
                     <td class="d-flex">
                         <a href="{{ route('backend.bookings.detail', ['id' => $booking->id]) }}" class="btn btn-sm btn-info mr-2">Detail</a>
+                        <a href="{{ route('backend.bookings.edit', ['id' => $booking->id]) }}" class="btn btn-sm btn-primary mr-2">Edit</a>
                     </td>
                   </tr>
                 @endforeach

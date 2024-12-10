@@ -58,7 +58,8 @@ Route::get('/dashboard', function () {
             Route::get('/{id}/checkin', 'checkin')->name('checkin');
             Route::get('/{id}/cancel', 'cancel')->name('cancel');
             Route::get('/{id}/done', 'done')->name('done');
-
+            Route::get('/{id}/edit', 'edit')->name('edit');
+            Route::put('/{id}', 'update')->name('update');
         });
 
     Route::as('customers.')

@@ -11,6 +11,7 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\Booking\CreateBookingRequest;
 use App\Models\Booking;
 use App\Models\RoomType;
+use App\Models\User;
 use App\Services\BookingService;
 use Exception;
 use Illuminate\Http\Request;
@@ -76,7 +77,8 @@ class ScheduleController extends Controller
 
     public function create() {
         $roomTypes = RoomType::all();
-        return view('backend.schedules.create', compact('roomTypes'));
+        $users = User::all();
+        return view('backend.schedules.create', compact('roomTypes', 'users'));
     }
 
     public function store(CreateBookingRequest $request) {
@@ -84,7 +86,7 @@ class ScheduleController extends Controller
             # booking process
             $result = $this->bookingService->create($request);
 
-            toast('Berhasil menambah tipe kamar','success');
+            toast('Berhasil menambah jadwal booking','success');
 
             return redirect()->back();
 
@@ -95,10 +97,10 @@ class ScheduleController extends Controller
             BookingStatusNotFoundException $e
         ) {
             alert()->error('ErrorAlert', $e->getMessage());
-            return redirect()->back();
+            return redirect()->back()->withInput($request->input());;
         } catch (Exception $e) {
             alert()->error('ErrorAlert','Server Error');
-            return redirect()->back();
+            return redirect()->back()->withInput($request->input());;
         }
     }
 }

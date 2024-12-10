@@ -24,12 +24,10 @@ class CreateBookingRequest extends FormRequest
     public function rules()
     {
         return [
-            "name" => ['required'],
+            "user_id" => ['required'],
             "check_in" => ['required'],
             "check_out" => ['required'],
             "room_type_id" => ['required'],
-            // "email" => ['required'],
-            "phone" => ['required'],
             "total_amount" => ['required'],
             "total_room" => ['required'],
             "total_guest" => ['required'],

@@ -2,9 +2,12 @@
 
 @section('content')
 <div class="card shadow-sm">
-    <div class="card-header bg-dark text-white d-flex justify-content-between align-items-center">
+    <div class="card-header d-flex justify-content-between align-items-center">
         <h4 class="mb-0">Admin - Detail Booking</h4>
-        <a href="{{ route('backend.bookings.index') }}" class="btn btn-secondary btn-sm">Kembali</a>
+        <div>
+            <a href="{{ route('backend.bookings.edit', ["id"=> $booking->id]) }}" class="btn btn-primary btn-sm">Edit</a>
+            <a href="{{ route('backend.bookings.index') }}" class="btn btn-secondary btn-sm">Kembali</a>
+        </div>
     </div>
     <div class="card-body">
         <!-- Informasi Booking -->

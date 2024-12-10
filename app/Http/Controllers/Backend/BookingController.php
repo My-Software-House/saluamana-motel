@@ -2,14 +2,30 @@
 
 namespace App\Http\Controllers\Backend;
 
+use App\Exceptions\BookingAlreadyExist;
+use App\Exceptions\BookingStatusNotFoundException;
+use App\Exceptions\PaymentException;
+use App\Exceptions\PhoneNumberNotFillException;
+use App\Exceptions\RoomNotFoundException;
 use App\Http\Controllers\Controller;
+use App\Http\Requests\Booking\CreateBookingRequest;
 use App\Models\Booking;
 use App\Models\BookingStatus;
+use App\Models\RoomType;
+use App\Models\User;
+use App\Services\BookingService;
 use Barryvdh\DomPDF\Facade\Pdf;
+use Exception;
 use Illuminate\Http\Request;
 
 class BookingController extends Controller
 {
+    private BookingService $bookingService;
+
+    public function __construct(BookingService $bookingService) {
+        $this->bookingService = $bookingService;
+    }
+
     public function index(Request $request) {
         $bookings = Booking::paginate(10);
 
@@ -59,5 +75,36 @@ class BookingController extends Controller
         $booking->save();
         toast('Status Booking Cancel','success');
         return redirect()->back();
+    }
+
+
+    public function edit($id) {
+        $booking = Booking::find($id);
+        $users = User::all();
+        $roomTypes = RoomType::all();
+        return view('backend.bookings.edit', compact('booking', 'users', 'roomTypes'));
+    }
+
+    public function update(CreateBookingRequest $request, $id) {
+        try {
+            # booking process
+            $result = $this->bookingService->update($request, $id);
+
+            toast('Berhasil mengubah data booking dengan booking id ' . $result->booking_id ,'success');
+
+            return redirect()->route('backend.bookings.detail', ['id' => $result->id]);
+
+        } catch (PhoneNumberNotFillException |
+            RoomNotFoundException |
+            BookingAlreadyExist |
+            PaymentException |
+            BookingStatusNotFoundException $e
+        ) {
+            alert()->error('ErrorAlert', $e->getMessage());
+            return redirect()->back()->withInput($request->input());;
+        } catch (Exception $e) {
+            alert()->error('ErrorAlert','Server Error');
+            return redirect()->back()->withInput($request->input());;
+        }
     }
 }

@@ -121,13 +121,12 @@ class BookingServiceImpl implements BookingService{
         $check_in = $req->input('check_in');
         $check_out = $req->input('check_out');
         $total_amount = $req->input('total_amount');
-        $email = $req->input('email');
         $total_room = $req->input('total_room');
-        $phone = $req->input('phone');
-        $name = $req->input('name');
         $total_guest = $req->input('total_guest');
         $total_child = $req->input('total_child');
         $is_breakfast = $req->input('is_breakfast');
+        $user_id = $req->input('user_id');
+
 
         $this->checkAvailableDate($check_in, $check_out, $room_id, $total_room);
 
@@ -135,16 +134,7 @@ class BookingServiceImpl implements BookingService{
             DB::beginTransaction();
 
             // create user customer
-            $userCostumer = User::where('phone', $phone)->first();
-            if ($userCostumer == null) {
-                $userCostumer = User::create([
-                    'name' => $name,
-                    'email' => $email,
-                    'phone' => $phone,
-                    'role' => 'customer',
-                    'password' => null
-                ]);
-            }
+            $userCostumer = User::find($user_id);
 
             $idBooking = $this->generateIdBooking();
             $booking_status_id = 2; // sudah terbayar
@@ -168,6 +158,54 @@ class BookingServiceImpl implements BookingService{
             ];
 
             $booking = Booking::create($data);
+            DB::commit();
+
+            return $booking;
+        } catch (\Exception $e) {
+            DB::rollBack();
+        }
+
+    }
+
+    function update(CreateBookingRequest $req, $id)
+    {
+        $room_id = $req->input('room_type_id');
+        $check_in = $req->input('check_in');
+        $check_out = $req->input('check_out');
+        $total_amount = $req->input('total_amount');
+        $total_room = $req->input('total_room');
+        $total_guest = $req->input('total_guest');
+        $total_child = $req->input('total_child');
+        $is_breakfast = $req->input('is_breakfast');
+        $user_id = $req->input('user_id');
+
+
+        $this->checkAvailableDate($check_in, $check_out, $room_id, $total_room);
+
+        try {
+            DB::beginTransaction();
+
+            // create user customer
+            $userCostumer = User::find($user_id);
+
+            $idBooking = $this->generateIdBooking();
+            # get duration
+            $duration = $this->getDuration($check_in, $check_out);
+
+
+            $booking = Booking::find($id);
+            $booking->check_in = $check_in;
+            $booking->check_out = $check_out;
+            $booking->booking_id = $idBooking;
+            $booking->duration = $duration;
+            $booking->user_id = $userCostumer->id;
+            $booking->room_type_id = $room_id;
+            $booking->total_room = $total_room;
+            $booking->total_amount = $total_amount;
+            $booking->total_guest = $total_guest;
+            $booking->total_child = $total_child;
+            $booking->is_breakfast = $is_breakfast;
+            $booking->save();
             DB::commit();
 
             return $booking;
