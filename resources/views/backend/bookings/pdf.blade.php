@@ -102,7 +102,7 @@
                 <tr>
                     <td>Jumlah Tamu</td>
                     <td>:</td>
-                    <td>{{ $booking->total_room }} Tamu , {{ $booking->total_child }} Anak</td>
+                    <td>{{ $booking->total_guest }} Tamu , {{ $booking->total_child }} Anak</td>
                 </tr>
                 <tr>
                     <td>Layanan Sarapan</td>
