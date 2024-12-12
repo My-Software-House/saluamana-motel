@@ -39,4 +39,9 @@ class Booking extends Model
     public function payment() {
         return $this->hasOne(Payment::class);
     }
+
+    public function rooms()
+    {
+        return $this->belongsToMany(Room::class, 'room_booking')->withPivot('id');
+    }
 }

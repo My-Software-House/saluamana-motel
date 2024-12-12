@@ -3,6 +3,7 @@
 use App\Http\Controllers\Backend\AmenitiesController;
 use App\Http\Controllers\Backend\BookingController;
 use App\Http\Controllers\Backend\CustomerController;
+use App\Http\Controllers\Backend\RoomController;
 use App\Http\Controllers\Backend\RoomTypeController;
 use App\Http\Controllers\Backend\ScheduleController;
 use Illuminate\Support\Facades\Route;
@@ -71,6 +72,16 @@ Route::get('/dashboard', function () {
             Route::post('/', 'store')->name('store');
             Route::get('/{id}/edit', 'edit')->name('edit');
             Route::put('/{id}', 'update')->name('update');
+        });
+
+    Route::as('rooms.')
+        ->prefix('rooms')
+        ->controller(RoomController::class)
+        ->group(function() {
+            Route::get('/', 'index')->name('index');
+            Route::post('/store', 'store')->name('store');
+            Route::get('/calendar', 'calendar')->name('calendar');
+
         });
 
     Route::as('schedules.')

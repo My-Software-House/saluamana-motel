@@ -13,13 +13,12 @@ class CreateRoomsTable extends Migration
      */
     public function up()
     {
+        // Better
+        Schema::dropIfExists('rooms');
         Schema::create('rooms', function (Blueprint $table) {
-            $table->uuid('id')->primary();
-            $table->string('name')->unique();
-            $table->enum('type', ['standar', 'deluxe', 'suite']);
-            $table->float('price', 10, 2);
-            $table->integer('max_guest');
-            $table->text('description');
+            $table->id();
+            $table->string('name');
+            $table->foreignUuid('room_type_id')->constrained();
             $table->timestamps();
         });
     }

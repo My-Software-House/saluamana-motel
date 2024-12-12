@@ -4,22 +4,18 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Support\Str;
-
+use Illuminate\Database\Eloquent\Relations\HasOne;
 
 class Room extends Model
 {
     use HasFactory;
 
-    protected $keyType = 'string';
+    public function roomType() {
+        return $this->belongsTo(RoomType::class);
+    }
 
-    public $incrementing = false;
-
-    public static function boot() {
-        parent::boot();
-
-        static::creating(function ($model) {
-            $model->id = Str::uuid();
-        });
+    public function bookings()
+    {
+        return $this->belongsToMany(Booking::class, 'room_booking')->withPivot('id');
     }
 }

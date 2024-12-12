@@ -13,6 +13,7 @@
     <div class="collapse" id="room">
         <ul class="nav flex-column sub-menu">
             <li class="nav-item"> <a class="nav-link" href="{{ route('backend.rooms-types.index') }}">Tipe Kamar</a></li>
+            <li class="nav-item"> <a class="nav-link" href="{{ route('backend.rooms.index') }}">Daftar Kamar</a></li>
             <li class="nav-item"> <a class="nav-link" href="{{ route('backend.amenities.index') }}">Fasilitas</a></li>
         </ul>
     </div>
@@ -63,6 +64,12 @@
     </div>
 </li>
 
+<li class="nav-item">
+    <a class="nav-link" href="{{ route('backend.rooms.calendar') }}">
+        <i class="fa-regular fa-room menu-icon"></i>
+        <span class="menu-title">Ketersediaan Kamar</span>
+    </a>
+</li>
 
 <li class="nav-item">
     <a class="nav-link" href="{{ route('backend.customers.index') }}">
