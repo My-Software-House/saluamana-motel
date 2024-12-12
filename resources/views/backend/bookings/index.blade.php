@@ -55,6 +55,11 @@
                     <td class="d-flex">
                         <a href="{{ route('backend.bookings.detail', ['id' => $booking->id]) }}" class="btn btn-sm btn-info mr-2">Detail</a>
                         <a href="{{ route('backend.bookings.edit', ['id' => $booking->id]) }}" class="btn btn-sm btn-primary mr-2">Edit</a>
+                        <form method="POST" action="{{ route('backend.bookings.delete', ['id' => $booking->id ]) }}" onsubmit="return confirm('Yakin ingin menghapus data?');">
+                          @csrf
+                          @method('DELETE')
+                          <button type="submit" class="btn btn-danger btn-xs">Delete</button>
+                        </form>
                     </td>
                   </tr>
                 @endforeach
