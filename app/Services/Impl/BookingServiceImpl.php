@@ -47,7 +47,7 @@ class BookingServiceImpl implements BookingService{
         $is_breakfast = $req->input('is_breakfast');
         $platform = $req->input('platform');
 
-        $this->checkAvailableDate($check_in, $check_out, $room_id, $total_room);
+        // $this->checkAvailableDate($check_in, $check_out, $room_id, $total_room);
 
         try {
             DB::beginTransaction();
