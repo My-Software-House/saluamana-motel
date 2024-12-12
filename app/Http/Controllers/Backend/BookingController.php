@@ -107,4 +107,10 @@ class BookingController extends Controller
             return redirect()->back()->withInput($request->input());;
         }
     }
+
+    public function delete($id) {
+        User::where('id',$id)->delete();
+        toast('Berhasil menghapus booking','success');
+        return redirect()->back();
+    }
 }
