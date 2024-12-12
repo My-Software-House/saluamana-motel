@@ -109,9 +109,15 @@ class BookingController extends Controller
     }
 
     public function delete($id) {
-        $booking = Booking::findOrFail($id);
-        $booking->delete();
-        toast('Berhasil menghapus booking','success');
-        return redirect()->back();
+        try {
+            $booking = Booking::findOrFail($id);
+            $booking->delete();
+            toast('Berhasil menghapus booking','success');
+            return redirect()->back();
+        } catch (\Exception $th) {
+            alert()->error('ErrorAlert','Booking tidak bisa dihapus.');
+            return redirect()->back();
+        }
+
     }
 }
