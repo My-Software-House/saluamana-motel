@@ -179,6 +179,7 @@ class BookingServiceImpl implements BookingService{
         $total_child = $req->input('total_child');
         $is_breakfast = $req->input('is_breakfast');
         $user_id = $req->input('user_id');
+        $booking_status_id = $req->input('booking_status_id');
 
 
         $this->checkAvailableDate($check_in, $check_out, $room_id, $total_room);
@@ -206,6 +207,7 @@ class BookingServiceImpl implements BookingService{
             $booking->total_guest = $total_guest;
             $booking->total_child = $total_child;
             $booking->is_breakfast = $is_breakfast;
+            $booking->booking_status_id = $booking_status_id;
             $booking->save();
             DB::commit();
 

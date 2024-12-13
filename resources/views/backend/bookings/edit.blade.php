@@ -59,6 +59,14 @@
                         </select>
                     </div>
                     <div class="form-group">
+                        <label for="booking_status_id">Status Pembayaran</label>
+                        <select class="form-control" name="booking_status_id" id="booking_status_id" required>
+                            <option value="">-- Pilih Status Pembayaran --</option>
+                            <option value="1" @if($booking->booking_status_id == "1") selected @endif>Menunggu Pembayaran</option>
+                            <option value="2" @if($booking->booking_status_id == "2") selected @endif>Sudah Terbayar</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
                         <label for="platform">Platform</label>
                         <select class="form-control" name="platform" id="platform" required>
                             <option value="Traveloka" @if($booking->platform == "Traveloka") selected @endif>Traveloka</option>
@@ -68,7 +76,7 @@
                             <option value="Whatsapp" @if($booking->platform == "Whatsapp") selected @endif>Whatsapp</option>
                         </select>
                     </div>
-                    <button type="submit" class="btn btn-primary">Tambah Booking</button>
+                    <button type="submit" class="btn btn-primary">Edit Booking</button>
                 </form>
             </div>
         </div>
