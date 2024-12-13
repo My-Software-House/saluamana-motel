@@ -65,7 +65,7 @@
                 @endforeach
               </tbody>
             </table>
-            {{ $bookings->links() }}
+            {{ $bookings->appends(['booking_status_id' => $_GET['booking_status_id'] ?? ''])->links() }}
         </div>
       </div>
     </div>

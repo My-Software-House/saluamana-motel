@@ -33,6 +33,7 @@ class CreateBookingRequest extends FormRequest
             "total_guest" => ['required'],
             "total_child" => ['required'],
             "is_breakfast" => ['required'],
+            "booking_status_id" => ['required']
         ];
     }
 }

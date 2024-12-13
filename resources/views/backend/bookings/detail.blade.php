@@ -48,6 +48,14 @@
             </div>
             <div class="row mb-3">
                 <div class="col-md-6">
+                    <p><strong>Platform Booking :</strong> {{ $booking->platform }}</p>
+                </div>
+                <div class="col-md-6">
+                    <p><strong>Total Tagihan :</strong> Rp. {{ number_format($booking->total_amount) }}</p>
+                </div>
+            </div>
+            <div class="row mb-3">
+                <div class="col-md-6">
                     <p><strong>Layanan Breakfast:</strong> @if ($booking->is_breakfast)
                     <span class="badge bg-success text-white">Termasuk</span></p>
                     @else
@@ -82,7 +90,7 @@
         </div>
         <hr>
 
-        {{-- @if ($booking->payment != null) --}}
+        @if ($booking->payment != null)
         <!-- Status Pembayaran -->
         <h5 class="mb-3">Pembayaran</h5>
         <div class="row mb-3">
@@ -107,15 +115,21 @@
             </div>
         </div>
         <hr>
-        {{-- @endif --}}
+        @endif
 
 
         <!-- Kontrol Admin -->
         <h5 class="mb-3">Kontrol Administrasi</h5>
         <div class="d-flex justify-content-between">
             <div>
-                <a href="{{ route('backend.bookings.checkin', ['id' => $booking->id]) }}" class="btn btn-info">Tandai Checkin</a>
-                <a href="{{ route('backend.bookings.done', ['id' => $booking->id]) }}" class="btn btn-success">Tandai Telah Selesai</a>
+                @if ($booking->booking_status_id == 1)
+                    <a href="{{ route('backend.bookings.paid', ['id' => $booking->id]) }}" class="btn btn-info">Tandai Sudah Terbayar</a>
+                @elseif ($booking->booking_status_id == 2)
+                    <a href="{{ route('backend.bookings.checkin', ['id' => $booking->id]) }}" class="btn btn-info">Tandai Checkin</a>
+                @elseif ($booking->booking_status_id == 2)
+                    <a href="{{ route('backend.bookings.done', ['id' => $booking->id]) }}" class="btn btn-success">Tandai Telah Selesai</a>
+                @endif
+
                 <a href="{{ route('backend.bookings.generate-invoice', ['id' => $booking->id]) }}" target="_blank" class="btn btn-primary">Cetak Invoice</a>
             </div>
             <a href="{{ route('backend.bookings.cancel', ['id' => $booking->id]) }}" class="btn btn-danger">Batalkan Booking</a>

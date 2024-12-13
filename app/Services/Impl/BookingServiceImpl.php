@@ -126,6 +126,7 @@ class BookingServiceImpl implements BookingService{
         $total_child = $req->input('total_child');
         $is_breakfast = $req->input('is_breakfast');
         $user_id = $req->input('user_id');
+        $booking_status_id = $req->input('booking_status_id');
 
 
         // $this->checkAvailableDate($check_in, $check_out, $room_id, $total_room);
@@ -137,7 +138,7 @@ class BookingServiceImpl implements BookingService{
             $userCostumer = User::find($user_id);
 
             $idBooking = $this->generateIdBooking();
-            $booking_status_id = 2; // sudah terbayar
+            // $booking_status_id = 2; // sudah terbayar
             $this->checkStatusBooking($booking_status_id);
             # get duration
             $duration = $this->getDuration($check_in, $check_out);

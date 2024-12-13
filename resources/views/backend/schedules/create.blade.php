@@ -59,6 +59,14 @@
                         </select>
                     </div>
                     <div class="form-group">
+                        <label for="booking_status_id">Status Pembayaran</label>
+                        <select class="form-control" name="booking_status_id" id="booking_status_id" required>
+                            <option value="">-- Pilih Status Pembayaran --</option>
+                            <option value="1">Menunggu Pembayaran</option>
+                            <option value="2">Sudah Terbayar</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
                         <label for="platform">Platform</label>
                         <select class="form-control" name="platform" id="platform" required>
                             <option value="Traveloka">Traveloka</option>

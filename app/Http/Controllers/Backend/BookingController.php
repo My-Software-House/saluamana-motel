@@ -59,6 +59,16 @@ class BookingController extends Controller
         toast('Status Booking Checkin','success');
         return redirect()->back();
     }
+
+    public function paid($id)
+    {
+        $booking = Booking::find($id);
+        $booking->booking_status_id = 2;
+        $booking->save();
+        toast('Status Booking Checkin','success');
+        return redirect()->back();
+    }
+
     public function cancel($id)
     {
         $booking = Booking::find($id);

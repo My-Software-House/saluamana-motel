@@ -62,6 +62,7 @@ Route::get('/dashboard', function () {
             Route::get('/{id}/edit', 'edit')->name('edit');
             Route::put('/{id}', 'update')->name('update');
             Route::delete('/{id}', 'delete')->name('delete');
+            Route::get('/{id}/paid', 'paid')->name('paid');
         });
 
     Route::as('customers.')
