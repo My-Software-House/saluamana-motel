@@ -355,6 +355,7 @@ class BookingServiceImpl implements BookingService{
     }
 
     private function createPayment(Booking $booking, $midtrans_order_id, $payment_method) {
+        // dd(Carbon::now()->format('Y-m-d H:i:s O')); // "2024-12-15 03:05:09 +00:00" 2525-06-09 15:07:00 +0700
         $payment_method = $payment_method;
         $uri = $this->midtransApiUrl . '/v2/charge';
         $authkey = 'Basic ' . base64_encode($this->serverKey);
@@ -380,7 +381,7 @@ class BookingServiceImpl implements BookingService{
                 'phone' => $booking->user->phone_number,
             ],
             "custom_expiry" => [
-                "order_time" => Carbon::now('Asia/Bangkok')->format('Y-m-d H:i:s P'),
+                "order_time" => Carbon::now()->format('Y-m-d H:i:s O'),
                 "expiry_duration"=> 60,
                 "unit" => "minute"
             ]
