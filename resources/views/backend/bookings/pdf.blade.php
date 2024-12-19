@@ -100,6 +100,11 @@
                     <td>{{ $booking->roomType->name }}</td>
                 </tr>
                 <tr>
+                    <td>Jumlah Kamar</td>
+                    <td>:</td>
+                    <td>{{ $booking->total_room }} Kamar</td>
+                </tr>
+                <tr>
                     <td>Jumlah Tamu</td>
                     <td>:</td>
                     <td>{{ $booking->total_guest }} Tamu , {{ $booking->total_child }} Anak</td>
