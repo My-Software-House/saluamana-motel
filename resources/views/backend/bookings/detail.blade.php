@@ -87,6 +87,9 @@
             <div class="col-md-6">
                 <p><strong>Nomor Telepon:</strong> {{ $booking->user->phone }}</p>
             </div>
+            <div class="col-md-6">
+                <p><strong>Alamat:</strong> {{ $booking->user->address }}</p>
+            </div>
         </div>
         <hr>
 

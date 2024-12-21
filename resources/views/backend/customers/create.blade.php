@@ -26,6 +26,10 @@
               {!! Form::label('email', 'Email (optional)') !!}
               {!! Form::text('email', old('email'), ['class' => 'form-control', 'placeholder' => 'Email customer']) !!}
             </div>
+            <div class="form-group">
+              {!! Form::label('address', 'Alamat') !!}
+              {!! Form::text('address', old('address'), ['class' => 'form-control', 'placeholder' => 'Alamat Customer']) !!}
+            </div>
             <button type="submit" class="btn btn-primary mr-2">Tambah</button>
           {!! Form::close() !!}
         </div>

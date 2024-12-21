@@ -21,7 +21,7 @@ class CustomerController extends Controller
         $userCostumer = User::where('phone', $request->input('phone'))->first();
         if ($userCostumer != null) {
             alert()->warning('WarningAlert','Nomer hp sudah terdaftar pada customer dengan nama ' . $userCostumer->name);
-            return redirect()->back();
+            return redirect()->back()->withInput($request->input());
         }
 
         User::create([
@@ -29,6 +29,7 @@ class CustomerController extends Controller
             'email' => $request->input('email'),
             'phone' => $request->input('phone'),
             'role' => 'customer',
+            'address' => $request->input('address'),
             'password' => null
         ]);
 

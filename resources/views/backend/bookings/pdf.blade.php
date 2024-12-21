@@ -95,6 +95,11 @@
                     <td>{{ $booking->user->phone }} / {{ $booking->user->email }}</td>
                 </tr>
                 <tr>
+                    <td>Alamat</td>
+                    <td>:</td>
+                    <td>{{ $booking->user->address ?? '-' }}</td>
+                </tr>
+                <tr>
                     <td>Tipe Kamar</td>
                     <td>:</td>
                     <td>{{ $booking->roomType->name }}</td>
