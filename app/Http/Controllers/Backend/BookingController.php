@@ -27,11 +27,32 @@ class BookingController extends Controller
     }
 
     public function index(Request $request) {
-        $bookings = Booking::orderBy('created_at', 'DESC')->paginate(10);
+        $key = $request->get('key');
+
+        $bookings = Booking::orderBy('created_at', 'DESC')->paginate(20);
+
+        if ($key != null) {
+            $bookings = Booking::orderBy('created_at', 'DESC')->where('booking_id', 'LIKE', "%" . $key ."%")
+                ->orWhereHas('user', function ($query) use ($key) {
+                    $query->where('name', 'LIKE', "%" . $key ."%");
+                })
+                ->paginate(20);
+        }
 
         if ($request->query('booking_status_id') != null) {
-            $bookings = Booking::orderBy('created_at', 'DESC')->where('booking_status_id', $request->query('booking_status_id'))->paginate(10);
+            $bookings = Booking::orderBy('created_at', 'DESC')->where('booking_status_id', $request->query('booking_status_id'))->paginate(20);
+            if ($key != null) {
+                $bookings = Booking::orderBy('created_at', 'DESC')
+                ->where('booking_id', 'LIKE', "%" . $key ."%")
+                ->orWhereHas('user', function ($query) use ($key) {
+                    $query->where('name', 'LIKE', "%" . $key ."%");
+                })
+                ->where('booking_status_id', $request->query('booking_status_id'))
+                ->paginate(20);
+            }
         }
+
+
 
         $bookinStatus = BookingStatus::find($request->query('booking_status_id'));
         return view('backend.bookings.index', compact('bookings', 'bookinStatus'));

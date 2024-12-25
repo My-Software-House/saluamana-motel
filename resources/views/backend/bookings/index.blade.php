@@ -13,6 +13,28 @@
             Status {{ $bookinStatus->name }}
           @endif
         </h4>
+        <div class="row">
+            <div class="col-lg-3 col-md-4 col-sm-6">
+                <form method="get" class="input-group mb-3" style="width: 300px">
+                <div class="form-group">
+                    <div class="input-group">
+                        <input type="hidden" name="booking_status_id" value="{{ $_GET['booking_status_id'] ?? '' }}">
+                        <input type="text" name="key" class="form-control" value="{{ $_GET['key'] ?? '' }}" placeholder="Cari Booking" aria-label="Recipient's username">
+                        <div class="input-group-append">
+                        <button class="btn btn-sm btn-primary" type="submit">Search</button>
+                        </div>
+                    </div>
+                </div>
+                </form>
+            </div>
+        </div>
+
+        {{-- <div class="mb-4">
+            <form method="get" class="input-group mb-3" style="width: 300px">
+                <input type="text" name="key" class="form-control" value="{{ $_GET['key'] ?? '' }}" placeholder="Cari mahasiswa">
+                <button class="btn btn-danger" type="submit" id="button-addon2">Cari</button>
+            </form>
+        </div> --}}
           <div class="table-responsive">
             <table class="table">
               <thead>
@@ -39,7 +61,7 @@
                 @foreach($bookings as $booking)
                   <tr>
                     <td>#</td>
-                    <td>{{ $booking->booking_id }}</td>
+                    <td><a href="{{ route('backend.bookings.detail', ['id' => $booking->id]) }}">{{ $booking->booking_id }}</a></td>
                     <td>{{ $booking->user->name }}</td>
                     <td>{{ $booking->user->phone }}</td>
                     {{-- <td>{{ $booking->check_in }}</td>
