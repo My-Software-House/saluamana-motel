@@ -282,7 +282,7 @@ class BookingServiceImpl implements BookingService{
         $message = <<<EOT
         Hallo Admin Salu Amana,
 
-        Pesan ini dari Salu Amana Resdence, terdapat booking baru untuk kamar $room->name atas nama $name pada tanggal $booking->check_in sampai $booking->check_out.
+        Pesan ini dari Salu Amana Residence, terdapat booking baru untuk kamar $room->name atas nama $name pada tanggal $booking->check_in sampai $booking->check_out.
 
         Terimakasih.
         EOT;
