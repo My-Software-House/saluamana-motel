@@ -182,7 +182,7 @@ class BookingServiceImpl implements BookingService{
         $booking_status_id = $req->input('booking_status_id');
 
 
-        $this->checkAvailableDate($check_in, $check_out, $room_id, $total_room);
+        // $this->checkAvailableDate($check_in, $check_out, $room_id, $total_room);
 
         try {
             DB::beginTransaction();

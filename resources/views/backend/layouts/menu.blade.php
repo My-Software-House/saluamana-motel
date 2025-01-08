@@ -66,7 +66,7 @@
 
 <li class="nav-item">
     <a class="nav-link" href="{{ route('backend.rooms.calendar') }}">
-        <i class="fa-regular fa-room menu-icon"></i>
+        <i class="fa-regular fa-calendar menu-icon"></i>
         <span class="menu-title">Ketersediaan Kamar</span>
     </a>
 </li>

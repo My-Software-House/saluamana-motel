@@ -102,7 +102,7 @@
             </div>
             <div class="col-md-6">
                 <p><strong>Status:</strong>
-                @if ($booking->payment->status_payment ?? "" != "unpaid")
+                @if ($booking->payment->status_payment != "unpaid")
                 <span class="badge bg-success text-white">Sudah Terbayar</span>
                 @else
                 <span class="badge bg-danger">Belum Terbayar</span>
