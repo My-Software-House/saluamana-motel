@@ -155,7 +155,7 @@
 
             <p>Saya tamu berdasarkan invoice Nomor <span style="font-weight: 700">#{{ substr($booking->id, 0, 5) }}</span> , tanggal  <span style="font-weight: 700">{{ Carbon\Carbon::parse($booking->created_at)->translatedFormat('d M Y') }}</span> Menerangkan dan Menyatakan : </p>
             <ul>
-                <li>Saya dan tamu bersama saya adalah benar pasangan saya (suami/istri) yangn sah secara hukum dan agama.</li>
+                <li>Saya dan tamu bersama saya adalah benar pasangan saya (suami/istri) yang sah secara hukum dan agama.</li>
                 <li>Saya dan tamu yang bersama saya adalah benar rekan kerja / sahabat / saudara / tim regu saya yang akan bermain bersama saya atas sebab yang halal dan tidak bertentangan dengan asusila atau hal-hal buruk lainya yang bertentangan dengan ketertiban sosial, agama dan budaya.</li>
                 <li>Saya dan tamu yang bersama saya akan menaati aturan tata tertib selama menginap di SALU AMANA <i>Residence</i> Wonosobo.</li>
                 <li>Saya dan tamu yang bersama saya bersedia menjaga ketenangan dan ketertiban selama menginap di SALU AMANA <i>Residence</i> Wonosobo.</li>
