@@ -83,7 +83,7 @@
         <hr>
         <div class="isi">
             <div style="background-color: #eee; padding: 10px">
-                <h1 style="font-size: 18px;">Invoice #{{ substr($booking->id, 0, 5) }}</h1>
+                <h1 style="font-size: 18px;">Invoice #{{ substr($booking->booking_id, 8, 13) }}</h1>
                 <p>Tanggal Faktur :
                     {{ Carbon\Carbon::parse($booking->created_at)->translatedFormat('d M Y') }}
                 </p>
@@ -153,7 +153,7 @@
                 </tr>
             </table>
 
-            <p>Saya tamu berdasarkan invoice Nomor <span style="font-weight: 700">#{{ substr($booking->id, 0, 5) }}</span> , tanggal  <span style="font-weight: 700">{{ Carbon\Carbon::parse($booking->created_at)->translatedFormat('d M Y') }}</span> Menerangkan dan Menyatakan : </p>
+            <p>Saya tamu berdasarkan invoice Nomor <span style="font-weight: 700">#{{ substr($booking->booking_id, 8, 13) }}</span> , tanggal  <span style="font-weight: 700">{{ Carbon\Carbon::parse($booking->created_at)->translatedFormat('d M Y') }}</span> Menerangkan dan Menyatakan : </p>
             <ul>
                 <li>Saya dan tamu bersama saya adalah benar pasangan saya (suami/istri) yang sah secara hukum dan agama.</li>
                 <li>Saya dan tamu yang bersama saya adalah benar rekan kerja / sahabat / saudara / tim regu saya yang akan bermain bersama saya atas sebab yang halal dan tidak bertentangan dengan asusila atau hal-hal buruk lainya yang bertentangan dengan ketertiban sosial, agama dan budaya.</li>
