@@ -154,17 +154,34 @@
             </table>
 
             <p>Saya tamu berdasarkan invoice Nomor <span style="font-weight: 700">#{{ substr($booking->booking_id, 8, 13) }}</span> , tanggal  <span style="font-weight: 700">{{ Carbon\Carbon::parse($booking->created_at)->translatedFormat('d M Y') }}</span> Menerangkan dan Menyatakan : </p>
-            <ul>
-                <li>Saya dan tamu bersama saya adalah benar pasangan saya (suami/istri) yang sah secara hukum dan agama.</li>
-                <li>Saya dan tamu yang bersama saya adalah benar rekan kerja / sahabat / saudara / tim regu saya yang akan bermain bersama saya atas sebab yang halal dan tidak bertentangan dengan asusila atau hal-hal buruk lainya yang bertentangan dengan ketertiban sosial, agama dan budaya.</li>
+            <ol>
+                <li>Saya dan tamu yang bersama saya adalah benar pasangan saya (suami/istri) yang sah secara hukum dan agama.</li>
+                <li>Saya dan tamu yang bersama saya adalah benar rekan kerja / sahabat / saudara / tim regu saya, yang akan bermain bersama saya atas sebab yang halal dan tidak bertentangan dengan asusila atau hal-hal buruk lainya yang bertentangan dengan ketertiban sosial, agama dan budaya.</li>
                 <li>Saya dan tamu yang bersama saya akan menaati aturan tata tertib selama menginap di SALU AMANA <i>Residence</i> Wonosobo.</li>
                 <li>Saya dan tamu yang bersama saya bersedia menjaga ketenangan dan ketertiban selama menginap di SALU AMANA <i>Residence</i> Wonosobo.</li>
                 <li>Barang yang tertinggal maximal 3x24 jam tidak diambil maka tidak menjadi tanggung jawab pihak SALU AMANA <i>residence</i> Wonosobo.</li>
                 <li>
-                    Saya dan tamu yang bersama saya bersedia dikenakan denda sesuai ketentuan kebujakan SALU AMANA <i>Residence</i> Wonosobo apabila melakukan hal-hal sebegai berikut :
-                    <ol>
-                        <li>Merokok di area yang tidak sepatutnya, denda Rp. 1.000.000, 00.</li>
-                        <li>Merusak barang dan/atau menghilangkan, denda sesuai nilai barang.</li>
+                    <ol type="a">
+                        <li>
+                            SALU AMANA Residence Wonosobo tidak bertanggung jawab atas kehilangan atau kerusakan barang-barang pribadi tamu, termasuk tetapi tidak terbatas pada uang, perhiasan, atau barang berharga lainnya, kecuali jika kehilangan atau kerusakan tersebut disebabkan oleh pihak SALU AMANA <i>Residence</i> Wonosobo atau staf secara langsung.
+                        </li>
+                        <li>
+                            SALU AMANA <i>Residence</i> Wonosobo juga tidak bertanggung jawab atas kehilangan atau kerusakan apa pun atas barang-barang tamu yang tertinggal.
+                        </li>
+                    </ol>
+                </li>
+                <li>
+                    Saya dan tamu yang bersama saya menyatakan melepaskan hak atas barang- barang kami yang tertinggal di SALU AMANA <i>Residence</i> Wonosobo dan melepaskan SALU AMANA <i>Residence</i> Wonosobo dari segala tuntutan, gugatan dan laporan sehubungan dengan barang yang tertinggal tersebut. Namun demikian, SALU AMANA <i>Residence</i> Wonosobo berkomitmen dengan itikad baik akan menyimpan barang-barang tamu yang tertinggal selama 2 x 24 jam. Tamu bertanggung jawab atas biaya penyimpanan dan pengiriman barang.
+                </li>
+                <li>
+                    Saya dan tamu yang bersama saya bersedia dikenakan denda sesuai ketentuan kebijakan SALUAMANA <i>Residence</i> Wonosobo apabila melakukan hal-hal sebagai berikut :
+                    <ol type="a">
+                        <li>
+                            Merokok di area yang tidak sepatutnya, dikenakan denda sebesar Rp 1.000.000,00 (satu juta rupiah).
+                        </li>
+                        <li>
+                            Merusak barang dan/atau menghilangkan, dikenakan denda sesuai dengan nilai barang.
+                        </li>
                     </ol>
                 </li>
 
