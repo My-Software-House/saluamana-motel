@@ -153,6 +153,21 @@
                 </tr>
             </table>
 
+            <footer>
+                <img src="footer-invoice.png" width="50%"/>
+            </footer>
+            <div  style="margin-top: 510px">
+                <img src="main-logo.png" style="float: left; left: 0px;" width="150px" />
+                <div style="float: right; margin-top: 10px">
+                    <p>
+                        0812-6655-7555 <br>
+                        Jalan Kyai Sabuk Alu Nomer 3, Pagerkukuh <br>
+                        Wonosobo, 56314, Jawa Tengah <br>
+                        saluamana03@gmail.com
+                    </p>
+                </div>
+            </div>
+            <hr style="margin-top: 130px"">
             <p>Saya tamu berdasarkan invoice Nomor <span style="font-weight: 700">#{{ substr($booking->booking_id, 8, 13) }}</span> , tanggal  <span style="font-weight: 700">{{ Carbon\Carbon::parse($booking->created_at)->translatedFormat('d M Y') }}</span> Menerangkan dan Menyatakan : </p>
             <ol>
                 <li>Saya dan tamu yang bersama saya adalah benar pasangan saya (suami/istri) yang sah secara hukum dan agama.</li>
