@@ -9,7 +9,7 @@
     <style>
         * {
             font-family: Arial, Helvetica, sans-serif;
-            font-size: 12px;
+            font-size: 13px;
 
         }
         header {
@@ -153,6 +153,46 @@
                 </tr>
             </table>
 
+            <table style="border: 1px; font-size: 18px; width: 100%; margin-top: 100px">
+                <tr>
+                    <td style="text-align: center">
+                        <b>Tamu Menginap</b>
+                    </td>
+                    <td style="text-align: center">
+                        <b>Resepsionis</b>
+                    </td>
+                </tr>
+                <tr>
+                    <td style="text-align: center">
+                        <br>
+                        <br>
+                        <br>
+                        <br>
+                        {{ $booking->user->name }}
+                    </td>
+                    <td style="text-align: center">
+                        <br>
+                        <br>
+                        <br>
+                        <br>
+                        (&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;)
+                    </td>
+                </tr>
+                {{-- <tr>
+                    <td style="width: 70%"></td>
+                    <td style="width: 150px"><b>Tamu Menginap</b> <br> Menyetujui </td>
+                </tr>
+                <br>
+                <br>
+                <br>
+                <tr>
+                    <td style="width: 70%"></td>
+                    <td style="width: 150px; padding: 20px">
+                        {{ $booking->user->name }}
+                        <br>
+                    </td>
+                </tr> --}}
+            </table>
             <footer>
                 <img src="footer-invoice.png" width="50%"/>
             </footer>
