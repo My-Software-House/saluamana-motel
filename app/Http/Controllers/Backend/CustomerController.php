@@ -27,7 +27,7 @@ class CustomerController extends Controller
         User::create([
             'name' => $request->input('name'),
             'email' => $request->input('email'),
-            'phone' => $request->input('phone'),
+            'phone' => $request->input('phone') ?? '-',
             'role' => 'customer',
             'address' => $request->input('address'),
             'password' => null
