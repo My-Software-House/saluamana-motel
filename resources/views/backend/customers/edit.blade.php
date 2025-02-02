@@ -26,6 +26,10 @@
               {!! Form::label('email', 'Email (optional)') !!}
               {!! Form::text('email',$customer->email, ['class' => 'form-control', 'placeholder' => 'Email customer']) !!}
             </div>
+            <div class="form-group">
+              {!! Form::label('address', 'Alamat (optional)') !!}
+              {!! Form::text('address',$customer->address, ['class' => 'form-control', 'placeholder' => 'Alamat customer']) !!}
+            </div>
             <button type="submit" class="btn btn-primary mr-2">Edit</button>
           {!! Form::close() !!}
         </div>

@@ -19,6 +19,7 @@
                   <th>Name</th>
                   <th>Email</th>
                   <th>Phone </th>
+                  <th>Alamat </th>
                   <th>Action</th>
                 </tr>
               </thead>
@@ -34,6 +35,7 @@
                     <td>{{ $customer->name }}</td>
                     <td>{{ $customer->email }}</td>
                     <td>{{ $customer->phone }}</td>
+                    <td>{{ $customer->address }}</td>
                     <td class="d-flex">
                         <a href="{{ route('backend.customers.edit', ['id' => $customer->id]) }}" class="btn btn-sm btn-primary mr-2">Edit</a>
                     </td>

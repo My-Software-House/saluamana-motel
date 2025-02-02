@@ -27,6 +27,7 @@ class CreateCustomerRequest extends FormRequest
             'name' => ['required'],
             'email' => [''],
             'phone' => [''],
+            'address' => [''],
         ];
     }
 }

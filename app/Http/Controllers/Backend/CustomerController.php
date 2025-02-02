@@ -56,6 +56,7 @@ class CustomerController extends Controller
         $customer->name = $request->input('name');
         $customer->email = $request->input('email');
         $customer->phone = $request->input('phone');
+        $customer->address = $request->input('address');
         $customer->save();
         toast('Berhasil mengubah data customer','success');
 
